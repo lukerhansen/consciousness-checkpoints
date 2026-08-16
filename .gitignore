@@ -1,0 +1,6 @@
+__pycache__/
+.lambda_key
+*.pyc
+.venv/
+hf_cache/
+.DS_Store

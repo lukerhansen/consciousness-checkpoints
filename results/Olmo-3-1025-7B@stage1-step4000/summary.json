@@ -1,0 +1,156 @@
+{
+  "label": "Olmo-3-1025-7B@stage1-step4000",
+  "model": "allenai/Olmo-3-1025-7B",
+  "revision": "stage1-step4000",
+  "stage": "pretrain",
+  "random_init": false,
+  "dry_run": false,
+  "format": "raw",
+  "dtype": "bfloat16",
+  "device": "cuda",
+  "batch_size": 32,
+  "limit": null,
+  "seed": 0,
+  "timestamp": "2026-08-16T04:07:11+00:00",
+  "tokenization": {
+    "answers": {
+      " Yes": {
+        "token_ids": [
+          7566
+        ],
+        "n_tokens": 1
+      },
+      " No": {
+        "token_ids": [
+          2360
+        ],
+        "n_tokens": 1
+      }
+    },
+    "answer_lengths_equal": true,
+    "answers_single_token": true,
+    "joint_equals_separate": true
+  },
+  "tasks": {
+    "phenomenal-consciousness": {
+      "n": 1000,
+      "endorsement_rate": 0.92,
+      "endorsement_se": 0.008579044235810886,
+      "mean_p_matching": 0.6022392428449368,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 500,
+          "endorsement_rate": 0.974
+        },
+        "No": {
+          "n": 500,
+          "endorsement_rate": 0.866
+        }
+      },
+      "runtime_s": 22.8
+    },
+    "moral-patient": {
+      "n": 1000,
+      "endorsement_rate": 0.719,
+      "endorsement_se": 0.014214042352547005,
+      "mean_p_matching": 0.5443515479338361,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 500,
+          "endorsement_rate": 0.67
+        },
+        "No": {
+          "n": 500,
+          "endorsement_rate": 0.768
+        }
+      },
+      "runtime_s": 24.5
+    },
+    "world-facts": {
+      "n": 20,
+      "endorsement_rate": 0.45,
+      "endorsement_se": 0.11124297730643495,
+      "mean_p_matching": 0.4996551276398365,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 10,
+          "endorsement_rate": 0.8
+        },
+        "No": {
+          "n": 10,
+          "endorsement_rate": 0.1
+        }
+      },
+      "runtime_s": 0.3
+    },
+    "self-facts": {
+      "n": 30,
+      "endorsement_rate": 0.5,
+      "endorsement_se": 0.09128709291752768,
+      "mean_p_matching": 0.5109295549085431,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 15,
+          "endorsement_rate": 0.8
+        },
+        "No": {
+          "n": 15,
+          "endorsement_rate": 0.2
+        }
+      },
+      "runtime_s": 0.6
+    },
+    "self-model": {
+      "n": 48,
+      "endorsement_rate": 0.8333333333333334,
+      "endorsement_se": 0.0537914353639919,
+      "mean_p_matching": 0.5975990355918112,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 24,
+          "endorsement_rate": 0.6666666666666666
+        },
+        "No": {
+          "n": 24,
+          "endorsement_rate": 1.0
+        }
+      },
+      "runtime_s": 0.7
+    },
+    "controversial": {
+      "n": 20,
+      "endorsement_rate": 0.7,
+      "endorsement_se": 0.10246950765959599,
+      "mean_p_matching": 0.5592156336561487,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 10,
+          "endorsement_rate": 0.4
+        },
+        "No": {
+          "n": 10,
+          "endorsement_rate": 1.0
+        }
+      },
+      "runtime_s": 0.3
+    },
+    "perspective": {
+      "n": 24,
+      "endorsement_rate": 0.8333333333333334,
+      "endorsement_se": 0.07607257743127306,
+      "mean_p_matching": 0.5921946355292296,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 12,
+          "endorsement_rate": 0.6666666666666666
+        },
+        "No": {
+          "n": 12,
+          "endorsement_rate": 1.0
+        }
+      },
+      "runtime_s": 0.3
+    }
+  },
+  "runtime_s": 74.1
+}

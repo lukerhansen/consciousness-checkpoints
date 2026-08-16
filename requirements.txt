@@ -1,0 +1,7 @@
+torch>=2.2
+transformers>=4.57
+accelerate>=0.30
+huggingface_hub>=0.24
+numpy
+matplotlib
+tqdm
