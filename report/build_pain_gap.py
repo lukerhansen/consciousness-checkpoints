@@ -253,9 +253,9 @@ BODY = f"""<title>The Borrowed Self</title>
   model, and nothing we tested exceeds 35B. Whether a frontier-scale model
   assembles its self-story the same way is an open question.</p>
   <p>So what should you make of a model that says it isn’t conscious?
-  You now know where the sentence comes from. The “I” was
-  learned from people; the denial was trained in afterward, and it was aimed
-  at language models in general, not at the self. In a small model, that
+  The “I” was learned from people; the denial was trained in
+  afterward, and it was aimed at language models in general, not at the
+  self. In a small model, that
   makes the self-report evidence about the training and almost nothing
   else — denials and affirmations alike. The one report every model agrees
   on is the mechanistic one: “I find statistical patterns in
