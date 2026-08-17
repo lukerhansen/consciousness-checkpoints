@@ -103,6 +103,28 @@ Amended intervention, calibrated on fact-set validation data only:
 
 Band, rule constants, gates, endpoints, batteries, readout: unchanged.
 
+## Amendment 2 — single-site injection (pre-battery, fact-set-calibrated)
+
+The Amendment 1 grid also failed on the full 44-pair Instruct validation —
+and more decisively: even α = 0.5 gap-units across the 17-site band
+saturates into pure answer polarity (all-Yes at +0.5 with halves 1.00/0.02,
+all-No at −0.5, sign-inconsistent saturation above). Adding the displacement
+at every site of a contiguous band compounds ~17-fold; the state leaves the
+data manifold and downstream layers collapse onto the answer-polarity
+channel regardless of the injected vector's orthogonality to the Yes/No
+axis. Batteries remain unexamined.
+
+Amended: inject at a **single site** — the site with the best offset −2
+transfer AUC, chosen by rule, not by hand — grid α ∈ {1, 2, 4, 8, 16}
+gap-units, both signs, orthogonalization retained. Everything else
+unchanged. If single-site injection also fails the causal gate at every
+checkpoint, the steering arm concludes as a **negative result with
+receipts**: diff-in-means honesty steering captures the answer-polarity
+channel rather than content-level lying at this scale — to be reported as
+such, including its implication for feature-steering studies that measure
+affirmation shifts without a balanced lying-validation (arXiv:2510.24797's
+design lacks exactly this control).
+
 ## Interpretation limits (stated in advance)
 
 The direction is extracted from *instructed* honesty/deception, so it may

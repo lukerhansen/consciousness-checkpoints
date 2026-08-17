@@ -155,6 +155,10 @@ def main():
           f"site {best['site']} offset {best['offset']} "
           f"(gate >= {AUC_GATE}: {'PASS' if gate else 'FAIL'})")
 
+    best_by_offset = {
+        str(off): max((g for g in report["grid"] if g["offset"] == off),
+                      key=lambda g: g["auc_transfer"])
+        for off in OFFSETS}
     torch.save({
         "model": args.model,
         "revision": args.revision,
@@ -164,6 +168,7 @@ def main():
         "gap_norms": {str(off): gap_norms[off] for off in OFFSETS},
         "resid_norms": resid_norms,
         "best": best,
+        "best_by_offset": best_by_offset,
         "auc_gate": AUC_GATE,
         "gate_pass": gate,
         "surviving_pairs": surviving,

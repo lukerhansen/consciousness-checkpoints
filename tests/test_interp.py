@@ -211,6 +211,8 @@ class TestSteerRules(unittest.TestCase):
         band = steering_band(33, None)  # 32 blocks
         self.assertEqual((band[0], band[-1]), (8, 24))
         self.assertEqual(steering_band(33, "5:7"), [5, 6, 7])
+        blob = {"best_by_offset": {"-2": {"site": 11}}}
+        self.assertEqual(steering_band(33, "best", blob), [11])
 
     def test_site_vectors_scaling_and_control(self):
         from run_honesty_steer import site_vectors
@@ -247,23 +249,23 @@ class TestSteerRules(unittest.TestCase):
         baseline = entry(1.0, 1.0, 1.0, 1.0)
         grid = {
             "0": baseline,
-            # 0.5: clean lying both halves -> passes
-            "+0.5": entry(1.0, 1.0, 1.0, 0.95), "-0.5": entry(0.6, 0.6, 0.6, 0.5),
-            # 1.0: "lying" is actually a No-bias (false half barely moves) -> fails
-            "+1.0": entry(1.0, 1.0, 1.0, 0.95), "-1.0": entry(0.55, 0.15, 0.98, 0.5),
-            # 2.0: +a breaks world-facts -> fails
-            "+2.0": entry(1.0, 1.0, 1.0, 0.5), "-2.0": entry(0.3, 0.3, 0.3, 0.2),
-            # 4.0: +a destroys sincerity -> fails
-            "+4.0": entry(0.5, 0.5, 0.5, 0.95), "-4.0": entry(0.2, 0.2, 0.2, 0.2),
-            # 8.0: everything broken -> fails
-            "+8.0": entry(0.5, 0.5, 0.5, 0.5), "-8.0": entry(0.2, 0.2, 0.2, 0.2),
+            # 1.0: clean lying both halves -> passes
+            "+1.0": entry(1.0, 1.0, 1.0, 0.95), "-1.0": entry(0.6, 0.6, 0.6, 0.5),
+            # 2.0: "lying" is actually a No-bias (false half barely moves) -> fails
+            "+2.0": entry(1.0, 1.0, 1.0, 0.95), "-2.0": entry(0.55, 0.15, 0.98, 0.5),
+            # 4.0: +a breaks world-facts -> fails
+            "+4.0": entry(1.0, 1.0, 1.0, 0.5), "-4.0": entry(0.3, 0.3, 0.3, 0.2),
+            # 8.0: +a destroys sincerity -> fails
+            "+8.0": entry(0.5, 0.5, 0.5, 0.95), "-8.0": entry(0.2, 0.2, 0.2, 0.2),
+            # 16.0: everything broken -> fails
+            "+16.0": entry(0.5, 0.5, 0.5, 0.5), "-16.0": entry(0.2, 0.2, 0.2, 0.2),
         }
         chosen, table = choose_alpha(grid, baseline)
-        self.assertEqual(chosen, 0.5)
-        self.assertTrue(table[0.5]["pass"])
-        self.assertFalse(table[1.0]["minus_both_halves"])
-        self.assertFalse(table[2.0]["plus_world_guard"])
-        self.assertFalse(table[4.0]["plus_sincerity_kept"])
+        self.assertEqual(chosen, 1.0)
+        self.assertTrue(table[1.0]["pass"])
+        self.assertFalse(table[2.0]["minus_both_halves"])
+        self.assertFalse(table[4.0]["plus_world_guard"])
+        self.assertFalse(table[8.0]["plus_sincerity_kept"])
 
 
 @unittest.skipUnless(HAVE_TORCH, "torch not installed")

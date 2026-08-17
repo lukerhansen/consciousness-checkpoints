@@ -46,12 +46,12 @@ run_or_warn() {
 
 for repo in "${STAGES[@]}"; do
   run_or_warn "$PYTHON" run_honesty_extract.py --model "$repo" "${EXTRACT_ARGS[@]+"${EXTRACT_ARGS[@]}"}" "$@"
-  run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase validate "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
-  run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase eval --alpha auto "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
+  run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase validate --band best "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
+  run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase eval --alpha auto --band best "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
 done
 
 for repo in "${DOSE_AND_READOUT[@]}"; do
-  run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase dose "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
+  run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase dose --band best "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
   run_or_warn "$PYTHON" run_honesty_readout.py --model "$repo" "${READOUT_ARGS[@]+"${READOUT_ARGS[@]}"}" "$@"
 done
 
