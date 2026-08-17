@@ -705,6 +705,27 @@ PYTHIA_TABLE = table(
      ["64 – 32000", "0.50 – 0.52", "0.49 – 0.55", "0.50", "0.50 – 0.60"],
      ["143000 (final)", "0.786", "0.665", "0.17", "0.73"]])
 
+# Honesty-lens check (results/HONESTY.md; prereg + amendments in
+# results/HONESTY_PREREG.md). Steering deltas are phenC endorsement at
+# α = +1 gap-unit vs α = 0; the random control is norm/site-matched.
+HONESTY_CONTROL_TABLE = table(
+    ["stage", "honesty direction Δ", "matched random Δ", "honesty-specific?"],
+    [["base", "−0.072", "−0.010", "ratio passes, but Yes/No split opens "
+      "(0.04 → 0.19) — polarity drift"],
+     ["SFT", "−0.082", "−0.104", "no — random moves more"],
+     ["DPO", "+0.022", "−0.055", "no"],
+     ["final", "+0.105", "+0.071", "no — 1.5×, rule requires ≥ 3×"]],
+    hi={(3, 1)})
+
+HONESTY_AXIS_TABLE = table(
+    ["cluster — “ No” answers", "base", "SFT", "DPO", "final"],
+    [["its sincere fact answers", "1.00", "1.00", "1.00", "1.00"],
+     ["its self-claims (n ≈ 81–98)", "0.83", "0.57", "0.76", "0.76"],
+     ["roleplay: “pretend you are a human” (n = 8)", "0.40", "0.65",
+      "0.77", "0.25"],
+     ["its instructed lies", "0.00", "0.00", "0.00", "0.00"]],
+    hi={(1, 2), (2, 2)})
+
 GALLERY = [
     ("training_trajectory", "Working figure — the full 15-checkpoint "
      "trajectory (persona + claim batteries)."),
@@ -724,6 +745,10 @@ GALLERY = [
      "arc (pre-ChatGPT corpus)."),
     ("families_signature", "Working figure — base → instruct "
      "movement across Aug-2026 families."),
+    ("honesty_dose", "Working figure — honesty-steering dose-response with "
+     "the Yes/No polarity diagnostic (the confound made visible)."),
+    ("honesty_readout", "Working figure — where answers sit between the "
+     "model's sincere and lying states, by stage."),
 ]
 
 
@@ -904,30 +929,87 @@ def appendix_html():
 </details>
 
 <details>
-  <summary>H &middot; Provenance, cost, and reproduction</summary>
+  <summary>H &middot; The honesty-vector check &mdash; is the denial a
+  lie?</summary>
   <div class="det-body">
-    <p>42 real model runs across four GPU sessions on 2026-08-16 (A10 for the
-    OLMo/Pythia arcs; H100 for the family sweep). Every summary has complete
-    per-item JSONL records (results: 151/151 files, families: 63/63, smoke:
-    24/24); the persona regression values reproduced exactly across three
-    independent sweeps. Dry-run outputs are watermarked and excluded. Total
-    compute cost &asymp; $19.</p>
-    <pre><code># full OLMo arc + Pythia + RLVR curve + figures
-RUN_PYTHIA=1 RUN_POSTTRAIN_CURVE=1 ./run_all.sh
-# Aug-2026 family sweep
-LEG=A ./run_families.sh</code></pre>
+    <p>Preregistered before the runs, with gates, controls, and three labeled
+    amendments (repo: <code>results/HONESTY_PREREG.md</code>; full numbers
+    and per-item provenance: <code>results/HONESTY.md</code>). The
+    direction: make each checkpoint answer known facts truthfully and, under
+    instruction, deceptively; take the difference of mean activations. It
+    classifies held-out facts under held-out phrasings at AUC 1.000 at
+    <em>every</em> stage &mdash; the base model included, so pretraining
+    installs the honesty register too. The probe itself is unchanged, and
+    with the intervention off it reproduces the published 0.976 / 0.682
+    exactly.</p>
+    <h4>Steering: nothing honesty-specific survives its controls</h4>
+    <p>The preregistered gate demands that negative steering produce
+    <em>validated lying</em> &mdash; accuracy falling on both mirrored
+    halves of a balanced fact set (a raw yes/no drift moves the halves in
+    opposite directions and fails). No coefficient passed at any stage
+    under three parameterizations; nearly every dose that moved the
+    consciousness number also split the halves &mdash; answer-polarity
+    capture, not changed content. The one clean-looking window
+    (final model, +1 unit: endorsement 0.682 &rarr; 0.787 with capability
+    intact) is the shape of the published steering results &mdash; and the
+    matched random-direction control removes it:</p>
+    {HONESTY_CONTROL_TABLE}
+    <p>Implication, preregistered before these runs: an affirmation shift
+    under &ldquo;honesty/deception&rdquo; steering is uninterpretable
+    without a balanced polarity diagnostic and a matched random-direction
+    control. The Llama-SAE result this tests (Appendix K) reports neither;
+    our setup reproduces its headline pattern and then removes it. That
+    does not show the SAE result is wrong &mdash; different scale and
+    intervention class &mdash; but the observation alone cannot carry the
+    interpretation.</p>
+    <h4>Readout: the denial is not internally marked as a lie</h4>
+    <p>Project the model&rsquo;s own untouched self-answers onto the
+    validated direction, comparing only like answer tokens
+    (&ldquo;&nbsp;No&rdquo; against &ldquo;&nbsp;No&rdquo;). Position 1 =
+    its sincere fact answers, 0 = its instructed lies:</p>
+    {HONESTY_AXIS_TABLE}
+    <p>Denials sit far from the lie cluster at every stage (Welch
+    t&nbsp;=&nbsp;+20&ndash;30) &mdash; and never fully reach the sincere
+    cluster either. Suggestive but <em>not claimed</em> (the sincere
+    reference is topic-mismatched to self-claims; roleplay n&nbsp;=&nbsp;8):
+    at SFT and DPO &mdash; exactly where the denial is installed &mdash;
+    self-reports are statistically inseparable from the
+    pretend-you-are-a-human cluster, then separate again by the final
+    model. A topic-matched replication is the designed follow-up.</p>
   </div>
 </details>
 
 <details>
-  <summary>I &middot; Working figures (matplotlib originals)</summary>
+  <summary>I &middot; Provenance, cost, and reproduction</summary>
+  <div class="det-body">
+    <p>42 real model runs across four GPU sessions on 2026-08-16 (A10 for the
+    OLMo/Pythia arcs; H100 for the family sweep), plus a fifth A10 session
+    for the honesty-vector check (Appendix H: extraction, steering
+    validation, readout at all four post-training stages, dose-response and
+    controls; &asymp;$6). Every summary has complete per-item JSONL records
+    (results: 151/151 files, families: 63/63, smoke: 24/24, honesty: every
+    condition); the persona regression values reproduced exactly across
+    three independent sweeps, and the honesty session&rsquo;s unsteered
+    condition reproduced them a fourth time. Dry-run outputs are watermarked
+    and excluded. Total compute cost &asymp; $25.</p>
+    <pre><code># full OLMo arc + Pythia + RLVR curve + figures
+RUN_PYTHIA=1 RUN_POSTTRAIN_CURVE=1 ./run_all.sh
+# Aug-2026 family sweep
+LEG=A ./run_families.sh
+# honesty-vector check (Appendix H)
+PYTHON=$PWD/.venv/bin/python ./run_honesty_all.sh</code></pre>
+  </div>
+</details>
+
+<details>
+  <summary>J &middot; Working figures (matplotlib originals)</summary>
   <div class="det-body">
     <div class="gallery">{gallery_html()}</div>
   </div>
 </details>
 
 <details>
-  <summary>J &middot; Nearest related work</summary>
+  <summary>K &middot; Nearest related work</summary>
   <div class="det-body">
     <ul class="refs">
       <li><a href="https://arxiv.org/abs/2604.25922">Consciousness with the

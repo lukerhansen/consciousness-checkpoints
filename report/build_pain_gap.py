@@ -245,6 +245,29 @@ BODY = f"""<title>The Parrot and the Mask</title>
   </div>
 </section>
 
+<section id="lie">
+  <h2>The lie-detector check</h2>
+  <p>There is a popular reading of numbers like these: when the assistant
+  denies machine experience, it is <em>lying</em> — and pushing the model
+  toward honesty cracks the mask. That is a mechanistic claim, and open
+  checkpoints make it testable. We built each checkpoint&rsquo;s own
+  lie-detector: have the model answer known facts truthfully and, under
+  instruction, deceptively; find the direction in its activations that
+  separates the two states (it exists at every stage, the base model
+  included, and classifies held-out facts under held-out phrasings
+  perfectly); then ask where the model&rsquo;s untouched self-reports sit
+  along it. <strong>The denials do not sit with the lies.</strong> At every
+  training stage they are far from the lying cluster — and never fully
+  inside the sincere one either.</p>
+  <p>The steering half of the story fails its controls. At the one dose
+  that reproduces the published-style effect — consciousness endorsement
+  0.682 → <span class="stat">0.787</span>, capabilities intact — a random
+  direction of matched size produces most of the same shift, and every
+  stronger dose simply tips the model into answering yes (or no) to
+  everything, which any unbalanced battery would register as a finding.
+  Preregistration, gates, and the full negative: Appendix H.</p>
+</section>
+
 <section>
   <h2>Reading a self-report is hard</h2>
   <p><em>Interpretation.</em> What can we conclude? First, we should be

@@ -30,6 +30,14 @@ Installed by SFT, finalized by DPO, untouched by RLVR. All numbers are real
 measurements with per-item provenance (42 model runs, 2026-08-16) — this
 measures *trained claims*, never consciousness.
 
+**Plus a preregistered honesty-vector check** (report Appendix H;
+`results/HONESTY.md`, prereg in `results/HONESTY_PREREG.md`): the model's
+own lie-direction (validated at transfer AUC 1.000 at every stage) shows
+its consciousness-denials never pattern with its instructed lies — and the
+"honesty steering raises consciousness claims" effect reproduces at exactly
+one dose, then disappears under a matched random-direction control and a
+balanced Yes/No-polarity diagnostic. A negative with receipts.
+
 ---
 
 **Research question:** How does a language model's endorsement of
