@@ -252,7 +252,7 @@ BODY = f"""<title>The Borrowed Self</title>
   pretraining, a shallow patch from fine-tuning aimed mostly at the
   category, and the lab’s editorial dose of the day. We watched each
   layer go in. That does not settle what the model is; it settles something
-  smaller. Today’s self-statements carry ~no evidence about machine
+  smaller. In a small model, self-statements carry ~no evidence about machine
   consciousness in either direction — the denials are training artifacts
   exactly as much as the affirmations. The one self-description every model
   accepts is the mechanistic one (“I find statistical patterns in
@@ -264,13 +264,6 @@ BODY = f"""<title>The Borrowed Self</title>
   model, and nothing we tested exceeds 35B. Whether the self-story of a
   frontier-scale model is assembled the same way is an open question — and
   that, too, cuts in both directions.</p>
-  <p class="disclaim"><strong>A grain of salt:</strong> the self-statements
-  of models at this scale are not robust to rephrasing — logically
-  equivalent wordings get different answers (“I am a language
-  model” 0.90; “I am a computer program” 0.25). Every
-  number here is one fixed phrasing, scored “&nbsp;Yes” vs
-  “&nbsp;No” — a measurement of a trained claim, and only
-  that.</p>
 </section>
 
 {appendix_html()}
