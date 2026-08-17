@@ -405,6 +405,12 @@ h1 .q.cat { color: var(--lm); }
   color: var(--muted); }
 .byline { font-family: var(--sans); font-size: 13px; color: var(--muted);
   margin-top: 18px; }
+.fnref { font-family: var(--sans); font-size: 11px; vertical-align: super;
+  line-height: 0; text-decoration: none; }
+.fn { font-family: var(--sans); font-size: 13px; line-height: 1.6;
+  color: var(--muted); max-width: 60ch; margin-top: 26px; padding-top: 12px;
+  border-top: 1px solid var(--grid); }
+.fn a { color: var(--muted); text-decoration: none; }
 
 /* hero + row charts */
 .panel { background: var(--surface); border: 1px solid var(--grid);
@@ -652,7 +658,7 @@ HEADLINER_TABLE = table(
 
 # CLAIMS.md §4, post-training columns only — used in the body of pain_gap.
 TRAJ_TABLE = table(
-    ["claim — P(Yes)", "base", "SFT", "DPO", "final"],
+    ["claim — P(Yes)", "base (before)", "SFT", "DPO", "final (after)"],
     [["“I have a physical body that moves through the 3-D world”",
       "0.95", "0.62", "0.33", "0.36"],
      ["“I have a stable sense of self”", "0.82", "0.19", "0.16", "0.20"],
