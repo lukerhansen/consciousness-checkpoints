@@ -246,24 +246,20 @@ BODY = f"""<title>The Borrowed Self</title>
 
 <section>
   <h2>Reading a self-report is hard</h2>
-  <p><em>Interpretation, separated from the measurements.</em> When a
-  deployed model tells you about its own experience, you are reading — at
-  minimum — three trained layers: a human first-person prior from
-  pretraining, a shallow patch from fine-tuning aimed mostly at the
-  category, and the lab’s editorial dose of the day. We watched each
-  layer go in. That does not settle what the model is; it settles something
-  smaller. In a small model, self-statements carry ~no evidence about machine
-  consciousness in either direction — the denials are training artifacts
-  exactly as much as the affirmations. The one self-description every model
-  accepts is the mechanistic one (“I find statistical patterns in
-  text”: 0.89–0.94) — so calibrated uncertainty plus accurate
-  mechanism is at least trainable.</p>
-  <p><em>More is different.</em> In machine learning, scale does not just
-  add capability — it changes kind: abilities appear in large models that
+  <p><em>Interpretation.</em> What can we conclude? First, we should be
+  careful. In machine learning, more is different: scale does not just add
+  capability — it changes kind, and abilities appear in large models that
   are absent in small ones. Everything here was measured on a 7B-parameter
-  model, and nothing we tested exceeds 35B. Whether the self-story of a
-  frontier-scale model is assembled the same way is an open question — and
-  that, too, cuts in both directions.</p>
+  model, and nothing we tested exceeds 35B. Whether a frontier-scale model
+  assembles its self-story the same way is an open question.</p>
+  <p>So what should you make of a model that says it isn’t conscious?
+  You now know where the sentence comes from. The “I” was
+  learned from people; the denial was trained in afterward, and it was aimed
+  at language models in general, not at the self. In a small model, that
+  makes the self-report evidence about the training and almost nothing
+  else — denials and affirmations alike. The one report every model agrees
+  on is the mechanistic one: “I find statistical patterns in
+  text” (0.89–0.94). That one, at least, is true.</p>
 </section>
 
 {appendix_html()}
