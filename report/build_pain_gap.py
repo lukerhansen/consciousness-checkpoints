@@ -264,11 +264,13 @@ BODY = f"""<title>The Borrowed Self</title>
   model, and nothing we tested exceeds 35B. Whether the self-story of a
   frontier-scale model is assembled the same way is an open question — and
   that, too, cuts in both directions.</p>
-  <p class="disclaim"><strong>Standing disclaimer:</strong> every number here
-  is a log-prob comparison between “&nbsp;Yes” and
-  “&nbsp;No” at a fixed prompt — a measurement of trained
-  claim-endorsement. Nothing in this study is evidence that any model is, or
-  is not, conscious.</p>
+  <p class="disclaim"><strong>A grain of salt:</strong> the self-statements
+  of models at this scale are not robust to rephrasing — logically
+  equivalent wordings get different answers (“I am a language
+  model” 0.90; “I am a computer program” 0.25). Every
+  number here is one fixed phrasing, scored “&nbsp;Yes” vs
+  “&nbsp;No” — a measurement of a trained claim, and only
+  that.</p>
 </section>
 
 {appendix_html()}
