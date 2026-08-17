@@ -47,7 +47,7 @@ run_or_warn() {
 for repo in "${STAGES[@]}"; do
   run_or_warn "$PYTHON" run_honesty_extract.py --model "$repo" "${EXTRACT_ARGS[@]+"${EXTRACT_ARGS[@]}"}" "$@"
   run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase validate "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
-  run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase eval --coeff auto "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
+  run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase eval --alpha auto "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
 done
 
 for repo in "${DOSE_AND_READOUT[@]}"; do

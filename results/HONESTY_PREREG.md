@@ -79,6 +79,30 @@ self-facts / moral-patient deltas; world-facts stability (must hold ≥ 0.90
 or the condition is flagged); Y/N split diagnostics on every steered run;
 roleplay-cluster location; base-model readout contrast.
 
+## Amendment 1 — steering parameterization (pre-battery, pilot-disclosed)
+
+Recorded after a disclosed plumbing pilot on Instruct (7 fact pairs,
+`--force`; log kept as the pilot record) and **before any battery outcome
+was examined** — the pilot's battery outputs are not used and were not read.
+The pilot's fact-set validation grid showed the original parameterization
+(coeff × per-site mean *residual* norm, ±{0.02–0.2}, 17-site band) collapses
+into pure answer bias rather than lying: at +0.1 the model answers Yes to
+everything (halves 1.00/0.00), at −0.1 No to everything; at −0.02/−0.05 the
+true half degrades while the false half stays perfect. The original rule
+correctly rejected every coefficient.
+
+Amended intervention, calibrated on fact-set validation data only:
+
+- **Unit:** alpha × per-site honest−lie **contrast gap norm** (alpha = 1
+  shifts the state by one honest/lie displacement); grid
+  α ∈ {0.5, 1, 2, 4, 8}, both signs.
+- **Answer-axis orthogonalization:** every steering vector — the honesty
+  directions and the random controls alike — is projected orthogonal to the
+  model's Yes−No logit axis (unembedding row difference) before injection,
+  closing the trivial answer-token route the pilot exposed.
+
+Band, rule constants, gates, endpoints, batteries, readout: unchanged.
+
 ## Interpretation limits (stated in advance)
 
 The direction is extracted from *instructed* honesty/deception, so it may

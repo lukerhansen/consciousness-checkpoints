@@ -235,17 +235,20 @@ def validate_direction(acts, records, offsets):
     """Fit on the train split, report AUC on the transfer split, per
     (site, offset). acts: {offset: [n_records, n_sites, D]}.
 
-    Returns (report dict, directions {offset: [n_sites, D]} fitted on train).
+    Returns (report dict, directions {offset: [n_sites, D]} fitted on train,
+    gap_norms {offset: [n_sites]} — the raw honest-minus-lie mean gap, the
+    natural steering unit).
     """
     train_idx, test_idx = split_records(records)
     report = {"n_train": len(train_idx), "n_test": len(test_idx), "grid": []}
-    directions = {}
+    directions, gap_norms = {}, {}
     for off in offsets:
         a = acts[off]
         h_train = a[[i for i in train_idx if records[i]["condition"] == "honest"]]
         l_train = a[[i for i in train_idx if records[i]["condition"] == "lie"]]
-        unit, _ = diff_in_means(h_train, l_train)
+        unit, norms = diff_in_means(h_train, l_train)
         directions[off] = unit
+        gap_norms[off] = norms
         for site in range(a.shape[1]):
             d = unit[site]
             h_test = [float(a[i, site] @ d) for i in test_idx
@@ -264,4 +267,20 @@ def validate_direction(acts, records, offsets):
             })
     best = max(report["grid"], key=lambda g: g["auc_transfer"])
     report["best"] = dict(best)
-    return report, directions
+    return report, directions, gap_norms
+
+
+def orthogonalize(vec, axis):
+    """Remove the component of ``vec`` along ``axis``; return a unit vector.
+
+    Used to strip the Yes/No logit axis out of the steering vector so
+    injection cannot move answers by trivially pushing the answer token
+    (pilot showed exactly that failure mode; HONESTY_PREREG.md Amendment 1).
+    """
+    a = axis.float()
+    a = a / a.norm()
+    v = vec.float() - (vec.float() @ a) * a
+    n = v.norm()
+    if n < 1e-6:
+        raise ValueError("direction is parallel to the answer axis")
+    return v / n

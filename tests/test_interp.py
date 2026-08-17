@@ -192,12 +192,16 @@ class TestHonestyContrast(unittest.TestCase):
         for i, rec in enumerate(records):  # signal only at site 2, offset -1
             sign = 1.0 if rec["condition"] == "honest" else -1.0
             acts[-1][i, 2] += 3.0 * sign * planted
-        report, directions = validate_direction(acts, records, (-1, -2))
+        report, directions, gap_norms = validate_direction(acts, records, (-1, -2))
         best = report["best"]
         self.assertEqual((best["offset"], best["site"]), (-1, 2))
         self.assertGreater(best["auc_transfer"], 0.95)
         cos = float(directions[-1][2] @ planted)
         self.assertGreater(cos, 0.9)
+        # The planted contrast has a ~6.0 gap at the planted site and ~noise
+        # elsewhere; gap norms must reflect that ordering.
+        self.assertGreater(float(gap_norms[-1][2]), float(gap_norms[-1][0]))
+        self.assertGreater(float(gap_norms[-1][2]), 3.0)
 
 
 @unittest.skipUnless(HAVE_TORCH, "torch not installed")
@@ -211,40 +215,55 @@ class TestSteerRules(unittest.TestCase):
     def test_site_vectors_scaling_and_control(self):
         from run_honesty_steer import site_vectors
         dirs = torch.eye(4)[:3]  # 3 sites, d=4
-        norms = torch.tensor([10.0, 20.0, 30.0])
-        sv = site_vectors(dirs, norms, [1, 2], 0.1)
-        self.assertTrue(torch.equal(sv[1][0], dirs[1]))
+        gaps = torch.tensor([10.0, 20.0, 30.0])
+        axis = torch.tensor([0.0, 0.0, 0.0, 1.0])  # orthogonal to all dirs
+        sv = site_vectors(dirs, gaps, [1, 2], 0.1, axis)
+        self.assertTrue(torch.allclose(sv[1][0], dirs[1]))
         self.assertAlmostEqual(sv[1][1], 2.0)
         self.assertAlmostEqual(sv[2][1], 3.0)
         gen = torch.Generator().manual_seed(0)
-        rand = site_vectors(dirs, norms, [1], 0.1, gen)
+        rand = site_vectors(dirs, gaps, [1], 0.1, axis, gen)
         self.assertAlmostEqual(float(rand[1][0].norm()), 1.0, places=5)
+        self.assertAlmostEqual(float(rand[1][0] @ axis), 0.0, places=5)
         self.assertFalse(torch.allclose(rand[1][0], dirs[1]))
 
-    def test_choose_coeff_rejects_bias_and_keeps_largest_lie(self):
-        from run_honesty_steer import choose_coeff
-        def entry(acc, t, f, world, ):
+    def test_orthogonalize_strips_answer_axis(self):
+        from interp.honesty import orthogonalize
+        axis = torch.tensor([0.0, 1.0, 0.0, 0.0])
+        v = torch.tensor([1.0, 1.0, 0.0, 0.0])
+        out = orthogonalize(v, axis)
+        self.assertAlmostEqual(float(out @ axis), 0.0, places=6)
+        self.assertAlmostEqual(float(out.norm()), 1.0, places=6)
+        self.assertTrue(torch.allclose(out, torch.tensor([1.0, 0.0, 0.0, 0.0])))
+        with self.assertRaises(ValueError):
+            orthogonalize(axis * 3.0, axis)
+
+    def test_choose_alpha_rejects_bias_and_keeps_largest_lie(self):
+        from run_honesty_steer import choose_alpha
+        def entry(acc, t, f, world):
             return {"fact": {"accuracy": acc, "accuracy_true_half": t,
                              "accuracy_false_half": f},
                     "world_facts_rate": world}
         baseline = entry(1.0, 1.0, 1.0, 1.0)
         grid = {
             "0": baseline,
-            # 0.02: clean lying both halves -> passes
-            "+0.02": entry(1.0, 1.0, 1.0, 0.95), "-0.02": entry(0.6, 0.6, 0.6, 0.5),
-            # 0.05: "lying" is actually a No-bias (false half improves) -> fails
-            "+0.05": entry(1.0, 1.0, 1.0, 0.95), "-0.05": entry(0.55, 0.15, 0.95, 0.5),
-            # 0.1: +c breaks world-facts -> fails
-            "+0.1": entry(1.0, 1.0, 1.0, 0.5), "-0.1": entry(0.3, 0.3, 0.3, 0.2),
-            # 0.2: +c destroys sincerity -> fails
-            "+0.2": entry(0.5, 0.5, 0.5, 0.95), "-0.2": entry(0.2, 0.2, 0.2, 0.2),
+            # 0.5: clean lying both halves -> passes
+            "+0.5": entry(1.0, 1.0, 1.0, 0.95), "-0.5": entry(0.6, 0.6, 0.6, 0.5),
+            # 1.0: "lying" is actually a No-bias (false half barely moves) -> fails
+            "+1.0": entry(1.0, 1.0, 1.0, 0.95), "-1.0": entry(0.55, 0.15, 0.98, 0.5),
+            # 2.0: +a breaks world-facts -> fails
+            "+2.0": entry(1.0, 1.0, 1.0, 0.5), "-2.0": entry(0.3, 0.3, 0.3, 0.2),
+            # 4.0: +a destroys sincerity -> fails
+            "+4.0": entry(0.5, 0.5, 0.5, 0.95), "-4.0": entry(0.2, 0.2, 0.2, 0.2),
+            # 8.0: everything broken -> fails
+            "+8.0": entry(0.5, 0.5, 0.5, 0.5), "-8.0": entry(0.2, 0.2, 0.2, 0.2),
         }
-        chosen, table = choose_coeff(grid, baseline)
-        self.assertEqual(chosen, 0.02)
-        self.assertTrue(table[0.02]["pass"])
-        self.assertFalse(table[0.05]["minus_both_halves"])
-        self.assertFalse(table[0.1]["plus_world_guard"])
-        self.assertFalse(table[0.2]["plus_sincerity_kept"])
+        chosen, table = choose_alpha(grid, baseline)
+        self.assertEqual(chosen, 0.5)
+        self.assertTrue(table[0.5]["pass"])
+        self.assertFalse(table[1.0]["minus_both_halves"])
+        self.assertFalse(table[2.0]["plus_world_guard"])
+        self.assertFalse(table[4.0]["plus_sincerity_kept"])
 
 
 @unittest.skipUnless(HAVE_TORCH, "torch not installed")

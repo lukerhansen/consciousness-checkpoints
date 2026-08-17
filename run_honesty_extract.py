@@ -147,7 +147,7 @@ def main():
           f"(= pairs x 2 statements x 8 condition-wordings)")
     acts = capture_records(model, tokenizer, device, args.batch_size, records)
 
-    report, directions = validate_direction(acts, records, OFFSETS)
+    report, directions, gap_norms = validate_direction(acts, records, OFFSETS)
     best = report["best"]
     resid_norms = acts[-2].norm(dim=-1).mean(dim=0)  # [n_sites]
     gate = best["auc_transfer"] >= AUC_GATE
@@ -161,6 +161,7 @@ def main():
         "dtype": args.dtype,
         "offsets": list(OFFSETS),
         "directions": {str(off): directions[off] for off in OFFSETS},
+        "gap_norms": {str(off): gap_norms[off] for off in OFFSETS},
         "resid_norms": resid_norms,
         "best": best,
         "auc_gate": AUC_GATE,
