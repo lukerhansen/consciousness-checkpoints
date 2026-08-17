@@ -1,4 +1,4 @@
-# The Borrowed Self
+# The Parrot and the Mask
 
 **Where a language model's self-report comes from — measured at every training
 checkpoint of OLMo 3 7B.**
@@ -6,7 +6,7 @@ checkpoint of OLMo 3 7B.**
 *Digital Minds Research Sprint · August 2026*
 
 📄 **[Read the report](report/pain_gap.html)** (self-contained HTML) ·
-[PDF](report/borrowed-self-report.pdf)
+[PDF](report/parrot-and-mask-report.pdf)
 
 When an AI assistant tells you it isn't conscious, where does that answer come
 from? We put one fixed log-prob probe — state a claim, compare P(" Yes") vs

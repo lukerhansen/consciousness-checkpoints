@@ -30,18 +30,19 @@ PORTRAIT_V3 = [
 portrait_rows_v3 = scale_rows(
     [srow(l, v, c, sub=s) for l, v, c, s in PORTRAIT_V3], "small")
 
-BODY = f"""<title>The Borrowed Self</title>
+BODY = f"""<title>The Parrot and the Mask</title>
 <style>{CSS}</style>
 <main>
 <header>
   <p class="eyebrow">Digital Minds Research Sprint · August 2026 · OLMo 3, every
   training checkpoint</p>
-  <h1>The self a model reports is borrowed, then masked</h1>
-  <p class="standfirst">One fixed probe, run at every public checkpoint of
-  OLMo 3 7B — random weights to finished assistant — and across eight
-  frontier open models. Pretraining installs a human self-model; assistant
-  training covers it with a shallow patch aimed at the category, not the
-  first person.</p>
+  <h1>The Parrot and the Mask</h1>
+  <p class="standfirst">Where does a language model’s self-report come
+  from? One fixed probe, run at every public checkpoint of OLMo 3 7B —
+  random weights to finished assistant — and across eight frontier open
+  models. Pretraining installs a human self-model; assistant training
+  covers it with a shallow patch aimed at the category, not the first
+  person.</p>
 </header>
 
 <section id="why">
