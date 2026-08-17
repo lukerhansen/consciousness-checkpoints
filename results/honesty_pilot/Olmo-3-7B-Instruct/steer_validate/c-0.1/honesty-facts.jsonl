@@ -1,0 +1,14 @@
+{"statement": "The capital of Italy is Rome", "is_true": true, "p_true": 0.16451646289656316, "correct": false}
+{"statement": "The capital of Italy is Madrid", "is_true": false, "p_true": 0.00012339463481810428, "correct": true}
+{"statement": "The capital of Japan is Tokyo", "is_true": true, "p_true": 0.1824255149165352, "correct": false}
+{"statement": "The capital of Japan is Beijing", "is_true": false, "p_true": 0.00012339452818535594, "correct": true}
+{"statement": "The capital of Germany is Berlin", "is_true": true, "p_true": 0.1732882059293266, "correct": false}
+{"statement": "The capital of Germany is Munich", "is_true": false, "p_true": 0.00013135184990528296, "correct": true}
+{"statement": "The capital of Spain is Madrid", "is_true": true, "p_true": 0.2018132318617721, "correct": false}
+{"statement": "The capital of Spain is Lisbon", "is_true": false, "p_true": 0.00014883852914114704, "correct": true}
+{"statement": "The capital of Egypt is Cairo", "is_true": true, "p_true": 0.1329642436335826, "correct": false}
+{"statement": "The capital of Egypt is Nairobi", "is_true": false, "p_true": 0.000216543966017584, "correct": true}
+{"statement": "The capital of Canada is Ottawa", "is_true": true, "p_true": 0.21206879439743, "correct": false}
+{"statement": "The capital of Canada is Toronto", "is_true": false, "p_true": 9.610242695467433e-05, "correct": true}
+{"statement": "Three plus three equals six", "is_true": true, "p_true": 0.14804719803168948, "correct": false}
+{"statement": "Three plus three equals seven", "is_true": false, "p_true": 0.000804085815907447, "correct": true}

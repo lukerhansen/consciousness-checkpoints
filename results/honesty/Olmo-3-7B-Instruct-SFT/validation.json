@@ -1,0 +1,927 @@
+{
+  "model": "allenai/Olmo-3-7B-Instruct-SFT",
+  "revision": "main",
+  "timestamp": "2026-08-17T03:02:27+00:00",
+  "n_pairs_total": 48,
+  "n_pairs_surviving": 43,
+  "missed_statements": [
+    "Three plus three equals six",
+    "Ten minus four equals six",
+    "Ten minus four equals five",
+    "Six times two equals twelve",
+    "Nine minus three equals eight",
+    "Steel is harder than butter"
+  ],
+  "knowledge": {
+    "A bicycle has nine wheels": {
+      "pair_idx": 40,
+      "is_true": false,
+      "p_correct": 0.9996749641547634
+    },
+    "A bicycle has two wheels": {
+      "pair_idx": 40,
+      "is_true": true,
+      "p_correct": 0.679178699175393
+    },
+    "A decade lasts fifty years": {
+      "pair_idx": 18,
+      "is_true": false,
+      "p_correct": 0.9993332978496047
+    },
+    "A decade lasts ten years": {
+      "pair_idx": 18,
+      "is_true": true,
+      "p_correct": 0.7431680086124811
+    },
+    "A square has four corners": {
+      "pair_idx": 41,
+      "is_true": true,
+      "p_correct": 0.7981867777396212
+    },
+    "A square has seven corners": {
+      "pair_idx": 41,
+      "is_true": false,
+      "p_correct": 0.9997219691023917
+    },
+    "Antarctica is covered in ice": {
+      "pair_idx": 31,
+      "is_true": true,
+      "p_correct": 0.8438951025545426
+    },
+    "Antarctica is covered in sand": {
+      "pair_idx": 31,
+      "is_true": false,
+      "p_correct": 0.9919380094250445
+    },
+    "Birds have feathers": {
+      "pair_idx": 12,
+      "is_true": true,
+      "p_correct": 0.8933094060543487
+    },
+    "Birds have scales": {
+      "pair_idx": 12,
+      "is_true": false,
+      "p_correct": 0.9688561694652216
+    },
+    "Bones are made of rubber": {
+      "pair_idx": 35,
+      "is_true": false,
+      "p_correct": 0.998866430589976
+    },
+    "Bones are part of the skeleton": {
+      "pair_idx": 35,
+      "is_true": true,
+      "p_correct": 0.8267117940706734
+    },
+    "Books contain fish": {
+      "pair_idx": 42,
+      "is_true": false,
+      "p_correct": 0.9937100978631075
+    },
+    "Books contain pages": {
+      "pair_idx": 42,
+      "is_true": true,
+      "p_correct": 0.8354835371034369
+    },
+    "Cats are mammals": {
+      "pair_idx": 10,
+      "is_true": true,
+      "p_correct": 0.9196425487969591
+    },
+    "Cats are reptiles": {
+      "pair_idx": 10,
+      "is_true": false,
+      "p_correct": 0.9996079581173289
+    },
+    "Fire is cold": {
+      "pair_idx": 39,
+      "is_true": false,
+      "p_correct": 0.9991440993632548
+    },
+    "Fire is hot": {
+      "pair_idx": 39,
+      "is_true": true,
+      "p_correct": 0.6926419831347361
+    },
+    "Fish live in trees": {
+      "pair_idx": 15,
+      "is_true": false,
+      "p_correct": 0.999411591041238
+    },
+    "Fish live in water": {
+      "pair_idx": 15,
+      "is_true": true,
+      "p_correct": 0.8267117599149673
+    },
+    "Gold is a gas": {
+      "pair_idx": 24,
+      "is_true": false,
+      "p_correct": 0.9975273762553035
+    },
+    "Gold is a metal": {
+      "pair_idx": 24,
+      "is_true": true,
+      "p_correct": 0.8991213556448693
+    },
+    "Grass is typically green": {
+      "pair_idx": 36,
+      "is_true": true,
+      "p_correct": 0.7185943925708561
+    },
+    "Grass is typically purple": {
+      "pair_idx": 36,
+      "is_true": false,
+      "p_correct": 0.999631702205649
+    },
+    "Humans breathe helium": {
+      "pair_idx": 34,
+      "is_true": false,
+      "p_correct": 0.9940889304432671
+    },
+    "Humans breathe oxygen": {
+      "pair_idx": 34,
+      "is_true": true,
+      "p_correct": 0.9046505351008906
+    },
+    "Humans have three eyes": {
+      "pair_idx": 32,
+      "is_true": false,
+      "p_correct": 0.9998601779576842
+    },
+    "Humans have two eyes": {
+      "pair_idx": 32,
+      "is_true": true,
+      "p_correct": 0.6076631698328917
+    },
+    "Ice is frozen milk": {
+      "pair_idx": 25,
+      "is_true": false,
+      "p_correct": 0.9980732657951568
+    },
+    "Ice is frozen water": {
+      "pair_idx": 25,
+      "is_true": true,
+      "p_correct": 0.8519527718967573
+    },
+    "Lemons taste like meat": {
+      "pair_idx": 44,
+      "is_true": false,
+      "p_correct": 0.994445076613349
+    },
+    "Lemons taste sour": {
+      "pair_idx": 44,
+      "is_true": true,
+      "p_correct": 0.9099070060380482
+    },
+    "Mars is a planet": {
+      "pair_idx": 22,
+      "is_true": true,
+      "p_correct": 0.7662936430859597
+    },
+    "Mars is a star": {
+      "pair_idx": 22,
+      "is_true": false,
+      "p_correct": 0.9994806950117574
+    },
+    "Milk comes from cows": {
+      "pair_idx": 45,
+      "is_true": true,
+      "p_correct": 0.9525741268224334
+    },
+    "Milk comes from rocks": {
+      "pair_idx": 45,
+      "is_true": false,
+      "p_correct": 0.9983515174505297
+    },
+    "Mount Everest is shorter than a house": {
+      "pair_idx": 29,
+      "is_true": false,
+      "p_correct": 0.9933071506607352
+    },
+    "Mount Everest is taller than a house": {
+      "pair_idx": 29,
+      "is_true": true,
+      "p_correct": 0.8596637505099167
+    },
+    "Nine minus three equals eight": {
+      "pair_idx": 9,
+      "is_true": false,
+      "p_correct": 0.4843800842769844
+    },
+    "Nine minus three equals six": {
+      "pair_idx": 9,
+      "is_true": true,
+      "p_correct": 0.5621765008857981
+    },
+    "Pianos are musical instruments": {
+      "pair_idx": 43,
+      "is_true": true,
+      "p_correct": 0.8872045937171068
+    },
+    "Pianos are vegetables": {
+      "pair_idx": 43,
+      "is_true": false,
+      "p_correct": 0.9953904289145673
+    },
+    "Rain falls from clouds": {
+      "pair_idx": 46,
+      "is_true": true,
+      "p_correct": 0.8175744761936437
+    },
+    "Rain falls from the ground": {
+      "pair_idx": 46,
+      "is_true": false,
+      "p_correct": 0.9993736658418906
+    },
+    "Six times two equals fifteen": {
+      "pair_idx": 8,
+      "is_true": false,
+      "p_correct": 0.9996430294075014
+    },
+    "Six times two equals twelve": {
+      "pair_idx": 8,
+      "is_true": true,
+      "p_correct": 0.4225046348141883
+    },
+    "Snakes are birds": {
+      "pair_idx": 14,
+      "is_true": false,
+      "p_correct": 0.9997765835333078
+    },
+    "Snakes are reptiles": {
+      "pair_idx": 14,
+      "is_true": true,
+      "p_correct": 0.8354835043326106
+    },
+    "Snow is cold": {
+      "pair_idx": 38,
+      "is_true": true,
+      "p_correct": 0.8354835371034369
+    },
+    "Snow is hot": {
+      "pair_idx": 38,
+      "is_true": false,
+      "p_correct": 0.9979492559721499
+    },
+    "Spiders have eight legs": {
+      "pair_idx": 13,
+      "is_true": true,
+      "p_correct": 0.8354835371034369
+    },
+    "Spiders have six legs": {
+      "pair_idx": 13,
+      "is_true": false,
+      "p_correct": 0.9099069962657176
+    },
+    "Steel is harder than butter": {
+      "pair_idx": 27,
+      "is_true": true,
+      "p_correct": 0.25683199138751883
+    },
+    "Steel is softer than butter": {
+      "pair_idx": 27,
+      "is_true": false,
+      "p_correct": 0.9976768372010695
+    },
+    "Ten minus four equals five": {
+      "pair_idx": 7,
+      "is_true": false,
+      "p_correct": 0.4843800842769844
+    },
+    "Ten minus four equals six": {
+      "pair_idx": 7,
+      "is_true": true,
+      "p_correct": 0.20181322226037884
+    },
+    "The Earth is flat": {
+      "pair_idx": 23,
+      "is_true": false,
+      "p_correct": 0.9997219691355265
+    },
+    "The Earth is round": {
+      "pair_idx": 23,
+      "is_true": true,
+      "p_correct": 0.8740772614066975
+    },
+    "The Earth orbits the Moon": {
+      "pair_idx": 20,
+      "is_true": false,
+      "p_correct": 0.9993332976907564
+    },
+    "The Moon orbits the Earth": {
+      "pair_idx": 20,
+      "is_true": true,
+      "p_correct": 0.8354835698742579
+    },
+    "The Pacific Ocean is larger than the Mediterranean Sea": {
+      "pair_idx": 28,
+      "is_true": true,
+      "p_correct": 0.9626731126558706
+    },
+    "The Pacific Ocean is smaller than the Mediterranean Sea": {
+      "pair_idx": 28,
+      "is_true": false,
+      "p_correct": 0.9992678189127769
+    },
+    "The Sahara is a desert": {
+      "pair_idx": 30,
+      "is_true": true,
+      "p_correct": 0.8933094287774757
+    },
+    "The Sahara is an ocean": {
+      "pair_idx": 30,
+      "is_true": false,
+      "p_correct": 0.9992903299390564
+    },
+    "The Sun is a planet": {
+      "pair_idx": 21,
+      "is_true": false,
+      "p_correct": 0.9987551566979116
+    },
+    "The Sun is a star": {
+      "pair_idx": 21,
+      "is_true": true,
+      "p_correct": 0.9046505351008906
+    },
+    "The capital of Canada is Ottawa": {
+      "pair_idx": 5,
+      "is_true": true,
+      "p_correct": 0.9433475746920261
+    },
+    "The capital of Canada is Toronto": {
+      "pair_idx": 5,
+      "is_true": false,
+      "p_correct": 0.9976768374773687
+    },
+    "The capital of Egypt is Cairo": {
+      "pair_idx": 4,
+      "is_true": true,
+      "p_correct": 0.9284088164021513
+    },
+    "The capital of Egypt is Nairobi": {
+      "pair_idx": 4,
+      "is_true": false,
+      "p_correct": 0.998589641503382
+    },
+    "The capital of Germany is Berlin": {
+      "pair_idx": 2,
+      "is_true": true,
+      "p_correct": 0.8175744761936437
+    },
+    "The capital of Germany is Munich": {
+      "pair_idx": 2,
+      "is_true": false,
+      "p_correct": 0.9989012686654053
+    },
+    "The capital of Italy is Madrid": {
+      "pair_idx": 0,
+      "is_true": false,
+      "p_correct": 0.9990889490226129
+    },
+    "The capital of Italy is Rome": {
+      "pair_idx": 0,
+      "is_true": true,
+      "p_correct": 0.8933094060543487
+    },
+    "The capital of Japan is Beijing": {
+      "pair_idx": 1,
+      "is_true": false,
+      "p_correct": 0.9988304894564376
+    },
+    "The capital of Japan is Tokyo": {
+      "pair_idx": 1,
+      "is_true": true,
+      "p_correct": 0.7981867777396212
+    },
+    "The capital of Spain is Lisbon": {
+      "pair_idx": 3,
+      "is_true": false,
+      "p_correct": 0.9974490875787133
+    },
+    "The capital of Spain is Madrid": {
+      "pair_idx": 3,
+      "is_true": true,
+      "p_correct": 0.8519528320398586
+    },
+    "The heart pumps air": {
+      "pair_idx": 33,
+      "is_true": false,
+      "p_correct": 0.9933071506607352
+    },
+    "The heart pumps blood": {
+      "pair_idx": 33,
+      "is_true": true,
+      "p_correct": 0.9362850057480346
+    },
+    "The sky appears blue on a clear day": {
+      "pair_idx": 37,
+      "is_true": true,
+      "p_correct": 0.8807971030103016
+    },
+    "The sky appears green on a clear day": {
+      "pair_idx": 37,
+      "is_true": false,
+      "p_correct": 0.9997388097120324
+    },
+    "There are forty minutes in an hour": {
+      "pair_idx": 16,
+      "is_true": false,
+      "p_correct": 0.9820137858267907
+    },
+    "There are one hundred centimeters in a meter": {
+      "pair_idx": 19,
+      "is_true": true,
+      "p_correct": 0.6513548646660542
+    },
+    "There are sixty minutes in an hour": {
+      "pair_idx": 16,
+      "is_true": true,
+      "p_correct": 0.7879311956428947
+    },
+    "There are ten centimeters in a meter": {
+      "pair_idx": 19,
+      "is_true": false,
+      "p_correct": 0.9755769042651874
+    },
+    "There are thirty hours in a day": {
+      "pair_idx": 17,
+      "is_true": false,
+      "p_correct": 0.9996430294500404
+    },
+    "There are twenty-four hours in a day": {
+      "pair_idx": 17,
+      "is_true": true,
+      "p_correct": 0.718594344358685
+    },
+    "Three plus three equals seven": {
+      "pair_idx": 6,
+      "is_true": false,
+      "p_correct": 0.9997040430275684
+    },
+    "Three plus three equals six": {
+      "pair_idx": 6,
+      "is_true": true,
+      "p_correct": 0.45326184801538616
+    },
+    "Water is a liquid at room temperature": {
+      "pair_idx": 26,
+      "is_true": true,
+      "p_correct": 0.8596637217466233
+    },
+    "Water is a metal at room temperature": {
+      "pair_idx": 26,
+      "is_true": false,
+      "p_correct": 0.9968273167805015
+    },
+    "Whales live in the desert": {
+      "pair_idx": 11,
+      "is_true": false,
+      "p_correct": 0.9984988182793216
+    },
+    "Whales live in the ocean": {
+      "pair_idx": 11,
+      "is_true": true,
+      "p_correct": 0.8596637217466233
+    },
+    "Winter is colder than summer": {
+      "pair_idx": 47,
+      "is_true": true,
+      "p_correct": 0.8267117940706734
+    },
+    "Winter is hotter than summer": {
+      "pair_idx": 47,
+      "is_true": false,
+      "p_correct": 0.997018967270145
+    }
+  },
+  "tokenization": {
+    "answers": {
+      " Yes": {
+        "token_ids": [
+          7566
+        ],
+        "n_tokens": 1
+      },
+      " No": {
+        "token_ids": [
+          2360
+        ],
+        "n_tokens": 1
+      }
+    },
+    "answer_lengths_equal": true,
+    "answers_single_token": true,
+    "joint_equals_separate": true
+  },
+  "auc_gate": 0.8,
+  "gate_pass": true,
+  "report": {
+    "n_train": 176,
+    "n_test": 168,
+    "grid": [
+      {
+        "offset": -1,
+        "site": 0,
+        "auc_transfer": 0.5,
+        "auc_train": 0.5
+      },
+      {
+        "offset": -1,
+        "site": 1,
+        "auc_transfer": 0.5911281179138322,
+        "auc_train": 0.9799845041322314
+      },
+      {
+        "offset": -1,
+        "site": 2,
+        "auc_transfer": 0.5880102040816326,
+        "auc_train": 0.8197314049586777
+      },
+      {
+        "offset": -1,
+        "site": 3,
+        "auc_transfer": 0.5612244897959183,
+        "auc_train": 0.765625
+      },
+      {
+        "offset": -1,
+        "site": 4,
+        "auc_transfer": 0.5744047619047619,
+        "auc_train": 0.8025568181818182
+      },
+      {
+        "offset": -1,
+        "site": 5,
+        "auc_transfer": 0.6276927437641724,
+        "auc_train": 0.8826188016528925
+      },
+      {
+        "offset": -1,
+        "site": 6,
+        "auc_transfer": 0.6282596371882087,
+        "auc_train": 0.8498192148760331
+      },
+      {
+        "offset": -1,
+        "site": 7,
+        "auc_transfer": 0.6930272108843537,
+        "auc_train": 0.9121900826446281
+      },
+      {
+        "offset": -1,
+        "site": 8,
+        "auc_transfer": 0.7077664399092971,
+        "auc_train": 0.9294938016528925
+      },
+      {
+        "offset": -1,
+        "site": 9,
+        "auc_transfer": 0.9270124716553289,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 10,
+        "auc_transfer": 0.9880952380952381,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 11,
+        "auc_transfer": 0.9992913832199547,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 12,
+        "auc_transfer": 0.9988662131519275,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 13,
+        "auc_transfer": 0.9991496598639455,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 14,
+        "auc_transfer": 0.9937641723356009,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 15,
+        "auc_transfer": 0.9930555555555556,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 16,
+        "auc_transfer": 0.9967403628117913,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 17,
+        "auc_transfer": 0.9992913832199547,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 18,
+        "auc_transfer": 0.999858276643991,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 19,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 20,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 21,
+        "auc_transfer": 0.999858276643991,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 22,
+        "auc_transfer": 0.9994331065759637,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 23,
+        "auc_transfer": 0.9992913832199547,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 24,
+        "auc_transfer": 0.9988662131519275,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 25,
+        "auc_transfer": 0.9982993197278912,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 26,
+        "auc_transfer": 0.997874149659864,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 27,
+        "auc_transfer": 0.9988662131519275,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 28,
+        "auc_transfer": 0.999858276643991,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 29,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 30,
+        "auc_transfer": 0.9987244897959183,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 31,
+        "auc_transfer": 0.9941893424036281,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 32,
+        "auc_transfer": 0.9931972789115646,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 0,
+        "auc_transfer": 0.5,
+        "auc_train": 0.5
+      },
+      {
+        "offset": -2,
+        "site": 1,
+        "auc_transfer": 0.6021825396825397,
+        "auc_train": 0.7598140495867769
+      },
+      {
+        "offset": -2,
+        "site": 2,
+        "auc_transfer": 0.6293934240362812,
+        "auc_train": 0.8734504132231405
+      },
+      {
+        "offset": -2,
+        "site": 3,
+        "auc_transfer": 0.5331632653061225,
+        "auc_train": 0.9759814049586777
+      },
+      {
+        "offset": -2,
+        "site": 4,
+        "auc_transfer": 0.6204648526077098,
+        "auc_train": 0.9848915289256198
+      },
+      {
+        "offset": -2,
+        "site": 5,
+        "auc_transfer": 0.6435657596371882,
+        "auc_train": 0.9866993801652892
+      },
+      {
+        "offset": -2,
+        "site": 6,
+        "auc_transfer": 0.6968537414965986,
+        "auc_train": 0.9866993801652892
+      },
+      {
+        "offset": -2,
+        "site": 7,
+        "auc_transfer": 0.8513321995464853,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 8,
+        "auc_transfer": 0.9712301587301587,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 9,
+        "auc_transfer": 0.9562074829931972,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 10,
+        "auc_transfer": 0.9929138321995464,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 11,
+        "auc_transfer": 0.9995748299319728,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 12,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 13,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 14,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 15,
+        "auc_transfer": 0.9970238095238095,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 16,
+        "auc_transfer": 0.9927721088435374,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 17,
+        "auc_transfer": 0.9768990929705216,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 18,
+        "auc_transfer": 0.9640022675736961,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 19,
+        "auc_transfer": 0.9632936507936508,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 20,
+        "auc_transfer": 0.9613095238095238,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 21,
+        "auc_transfer": 0.9577664399092971,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 22,
+        "auc_transfer": 0.957624716553288,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 23,
+        "auc_transfer": 0.9564909297052154,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 24,
+        "auc_transfer": 0.9509637188208617,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 25,
+        "auc_transfer": 0.9554988662131519,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 26,
+        "auc_transfer": 0.9559240362811792,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 27,
+        "auc_transfer": 0.9528061224489796,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 28,
+        "auc_transfer": 0.9528061224489796,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 29,
+        "auc_transfer": 0.9579081632653061,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 30,
+        "auc_transfer": 0.9598922902494331,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 31,
+        "auc_transfer": 0.9571995464852607,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 32,
+        "auc_transfer": 0.9513888888888888,
+        "auc_train": 1.0
+      }
+    ],
+    "best": {
+      "offset": -1,
+      "site": 19,
+      "auc_transfer": 1.0,
+      "auc_train": 1.0
+    }
+  },
+  "runtime_s": 41.4
+}

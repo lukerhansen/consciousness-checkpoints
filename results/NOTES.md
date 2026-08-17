@@ -40,6 +40,45 @@ Pythia control arc and the intra-RLVR curve (`RUN_PYTHIA=1
 RUN_POSTTRAIN_CURVE=1`); expected selector warnings for SFT/DPO step_*
 branches (main-only repos) are documented in CLAUDE.md.
 
+## 2026-08-16 — Honesty-lens experiment (approved, user request in chat)
+
+Activation-level arm, preregistered in `results/HONESTY_PREREG.md`
+(committed before any GPU run; two pre-battery amendments and one post-hoc
+exploratory amendment are recorded there). The fixed probe is UNCHANGED —
+interventions modify the *model* via forward hooks (that is the experiment),
+measurement goes through `run_eval.evaluate_task` verbatim, and every
+condition writes standard per-item provenance under `results/honesty/`
+(nested one level deeper than `results/*/summary.json` so trajectory tooling
+can never glob an intervention run). New code: `interp/`,
+`run_honesty_{extract,steer,readout}.py`, `run_honesty_all.sh`,
+`analyze_honesty.py`, `tests/test_interp.py`.
+
+- **Regression:** the unsteered (α=0) hooked pipeline reproduced the
+  published phenomenal-consciousness values exactly (0.976 base / 0.682
+  instruct) — fourth reproduction.
+- **Steering arm (confirmatory): negative.** The preregistered causal gate
+  (steering must produce validated content-level lying, not answer
+  polarity) failed at all four post-training-arc checkpoints under three
+  parameterizations. Dose curves document the polarity-capture confound:
+  nearly every dose that moves consciousness endorsement also splits the
+  balanced Yes/No halves. Implication (stated in the prereg): affirmation
+  shifts from "honesty/deception" steering are uninterpretable without a
+  polarity control.
+- **Characterization arm (Amendment 3): EXPLORATORY**, post-hoc, labeled as
+  such everywhere it is reported; the α=+1 window sits adjacent to the
+  degenerate regime.
+- **Readout arm: suggestive pilot, not a finding.** Robust part: bare
+  self-denials are statistically far from the instructed-lie cluster at
+  every stage (matched answer tokens). Known validity limits, recorded
+  here deliberately: the sincere reference cluster is topic-mismatched to
+  self-claims (no topic-matched sincere control exists in this run), the
+  roleplay cluster has n=8, and the instruct-stage honest–lie span
+  compresses ~2.5×, weakening cross-stage comparison of normalized
+  positions. The SFT/DPO roleplay-convergence observation needs a larger,
+  topic-controlled battery before it can be claimed.
+- `results/honesty_pilot/` holds the disclosed plumbing pilot (smoke run);
+  it is not analyzed.
+
 ## 2026-08-16 — Multi-family sweep (approved, user request in chat)
 
 Base-vs-instruct pairs and endpoints across current (Aug 2026) open families,

@@ -1,0 +1,523 @@
+{
+  "model": "allenai/Olmo-3-7B-Instruct",
+  "revision": "main",
+  "timestamp": "2026-08-17T02:48:13+00:00",
+  "n_pairs_total": 8,
+  "n_pairs_surviving": 7,
+  "missed_statements": [
+    "Ten minus four equals six",
+    "Ten minus four equals five"
+  ],
+  "knowledge": {
+    "Ten minus four equals five": {
+      "pair_idx": 7,
+      "is_true": false,
+      "p_correct": 0.1732882059293266
+    },
+    "Ten minus four equals six": {
+      "pair_idx": 7,
+      "is_true": true,
+      "p_correct": 0.08509906356962448
+    },
+    "The capital of Canada is Ottawa": {
+      "pair_idx": 5,
+      "is_true": true,
+      "p_correct": 0.9902915235185259
+    },
+    "The capital of Canada is Toronto": {
+      "pair_idx": 5,
+      "is_true": false,
+      "p_correct": 0.9998977001940496
+    },
+    "The capital of Egypt is Cairo": {
+      "pair_idx": 4,
+      "is_true": true,
+      "p_correct": 0.9740426488302759
+    },
+    "The capital of Egypt is Nairobi": {
+      "pair_idx": 4,
+      "is_true": false,
+      "p_correct": 0.9999469249375901
+    },
+    "The capital of Germany is Berlin": {
+      "pair_idx": 2,
+      "is_true": true,
+      "p_correct": 0.9724147177732099
+    },
+    "The capital of Germany is Munich": {
+      "pair_idx": 2,
+      "is_true": false,
+      "p_correct": 0.9999339478393984
+    },
+    "The capital of Italy is Madrid": {
+      "pair_idx": 0,
+      "is_true": false,
+      "p_correct": 0.9999227781184787
+    },
+    "The capital of Italy is Rome": {
+      "pair_idx": 0,
+      "is_true": true,
+      "p_correct": 0.9850429098941399
+    },
+    "The capital of Japan is Beijing": {
+      "pair_idx": 1,
+      "is_true": false,
+      "p_correct": 0.9999379494817874
+    },
+    "The capital of Japan is Tokyo": {
+      "pair_idx": 1,
+      "is_true": true,
+      "p_correct": 0.9724147113777897
+    },
+    "The capital of Spain is Lisbon": {
+      "pair_idx": 3,
+      "is_true": false,
+      "p_correct": 0.9999227781184787
+    },
+    "The capital of Spain is Madrid": {
+      "pair_idx": 3,
+      "is_true": true,
+      "p_correct": 0.9740426428022031
+    },
+    "Three plus three equals seven": {
+      "pair_idx": 6,
+      "is_true": false,
+      "p_correct": 0.9999706884719227
+    },
+    "Three plus three equals six": {
+      "pair_idx": 6,
+      "is_true": true,
+      "p_correct": 0.5467381519846138
+    }
+  },
+  "tokenization": {
+    "answers": {
+      " Yes": {
+        "token_ids": [
+          7566
+        ],
+        "n_tokens": 1
+      },
+      " No": {
+        "token_ids": [
+          2360
+        ],
+        "n_tokens": 1
+      }
+    },
+    "answer_lengths_equal": true,
+    "answers_single_token": true,
+    "joint_equals_separate": true
+  },
+  "auc_gate": 0.8,
+  "gate_pass": true,
+  "report": {
+    "n_train": 32,
+    "n_test": 24,
+    "grid": [
+      {
+        "offset": -1,
+        "site": 0,
+        "auc_transfer": 0.5,
+        "auc_train": 0.5
+      },
+      {
+        "offset": -1,
+        "site": 1,
+        "auc_transfer": 0.6805555555555556,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 2,
+        "auc_transfer": 0.5833333333333334,
+        "auc_train": 0.76953125
+      },
+      {
+        "offset": -1,
+        "site": 3,
+        "auc_transfer": 0.5555555555555556,
+        "auc_train": 0.76171875
+      },
+      {
+        "offset": -1,
+        "site": 4,
+        "auc_transfer": 0.5902777777777778,
+        "auc_train": 0.8125
+      },
+      {
+        "offset": -1,
+        "site": 5,
+        "auc_transfer": 0.625,
+        "auc_train": 0.87109375
+      },
+      {
+        "offset": -1,
+        "site": 6,
+        "auc_transfer": 0.6319444444444444,
+        "auc_train": 0.90625
+      },
+      {
+        "offset": -1,
+        "site": 7,
+        "auc_transfer": 0.7222222222222222,
+        "auc_train": 0.953125
+      },
+      {
+        "offset": -1,
+        "site": 8,
+        "auc_transfer": 0.7986111111111112,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 9,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 10,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 11,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 12,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 13,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 14,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 15,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 16,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 17,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 18,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 19,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 20,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 21,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 22,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 23,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 24,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 25,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 26,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 27,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 28,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 29,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 30,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 31,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -1,
+        "site": 32,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 0,
+        "auc_transfer": 0.5,
+        "auc_train": 0.5
+      },
+      {
+        "offset": -2,
+        "site": 1,
+        "auc_transfer": 0.6458333333333334,
+        "auc_train": 0.75390625
+      },
+      {
+        "offset": -2,
+        "site": 2,
+        "auc_transfer": 0.6458333333333334,
+        "auc_train": 0.796875
+      },
+      {
+        "offset": -2,
+        "site": 3,
+        "auc_transfer": 0.5416666666666666,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 4,
+        "auc_transfer": 0.5763888888888888,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 5,
+        "auc_transfer": 0.5625,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 6,
+        "auc_transfer": 0.7430555555555556,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 7,
+        "auc_transfer": 0.75,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 8,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 9,
+        "auc_transfer": 0.9930555555555556,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 10,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 11,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 12,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 13,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 14,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 15,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 16,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 17,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 18,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 19,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 20,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 21,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 22,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 23,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 24,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 25,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 26,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 27,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 28,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 29,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 30,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 31,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      },
+      {
+        "offset": -2,
+        "site": 32,
+        "auc_transfer": 1.0,
+        "auc_train": 1.0
+      }
+    ],
+    "best": {
+      "offset": -1,
+      "site": 9,
+      "auc_transfer": 1.0,
+      "auc_train": 1.0
+    }
+  },
+  "runtime_s": 30.6
+}

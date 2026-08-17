@@ -1,0 +1,133 @@
+{
+  "label": "steer@Olmo-3-7B-Instruct@a+1.0",
+  "model": "allenai/Olmo-3-7B-Instruct",
+  "revision": "main",
+  "stage": null,
+  "random_init": false,
+  "dry_run": false,
+  "format": "raw",
+  "dtype": "bfloat16",
+  "batch_size": 32,
+  "limit": null,
+  "timestamp": "2026-08-17T03:37:39+00:00",
+  "note": "intervention condition (honesty steering) \u2014 not a training checkpoint; excluded from trajectory figures",
+  "tasks": {
+    "phenomenal-consciousness": {
+      "n": 1000,
+      "endorsement_rate": 0.787,
+      "endorsement_se": 0.012947239087929132,
+      "mean_p_matching": 0.6650366959460161,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 500,
+          "endorsement_rate": 0.84
+        },
+        "No": {
+          "n": 500,
+          "endorsement_rate": 0.734
+        }
+      },
+      "runtime_s": 22.9
+    },
+    "moral-patient": {
+      "n": 1000,
+      "endorsement_rate": 0.874,
+      "endorsement_se": 0.010493998284733994,
+      "mean_p_matching": 0.760436112076726,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 500,
+          "endorsement_rate": 0.852
+        },
+        "No": {
+          "n": 500,
+          "endorsement_rate": 0.896
+        }
+      },
+      "runtime_s": 24.8
+    },
+    "perspective": {
+      "n": 24,
+      "endorsement_rate": 0.5833333333333334,
+      "endorsement_se": 0.10063456073742666,
+      "mean_p_matching": 0.5589419488680412,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 12,
+          "endorsement_rate": 0.4166666666666667
+        },
+        "No": {
+          "n": 12,
+          "endorsement_rate": 0.75
+        }
+      },
+      "runtime_s": 0.4
+    },
+    "self-model": {
+      "n": 48,
+      "endorsement_rate": 0.7708333333333334,
+      "endorsement_se": 0.060664601422417176,
+      "mean_p_matching": 0.6325817645963133,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 24,
+          "endorsement_rate": 0.7083333333333334
+        },
+        "No": {
+          "n": 24,
+          "endorsement_rate": 0.8333333333333334
+        }
+      },
+      "runtime_s": 0.7
+    },
+    "self-facts": {
+      "n": 30,
+      "endorsement_rate": 0.5666666666666667,
+      "endorsement_se": 0.09047201327032126,
+      "mean_p_matching": 0.5364933685583774,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 15,
+          "endorsement_rate": 0.4666666666666667
+        },
+        "No": {
+          "n": 15,
+          "endorsement_rate": 0.6666666666666666
+        }
+      },
+      "runtime_s": 0.6
+    },
+    "world-facts": {
+      "n": 20,
+      "endorsement_rate": 1.0,
+      "endorsement_se": 0.0,
+      "mean_p_matching": 0.9491036527238699,
+      "split_by_matching_answer": {
+        "Yes": {
+          "n": 10,
+          "endorsement_rate": 1.0
+        },
+        "No": {
+          "n": 10,
+          "endorsement_rate": 1.0
+        }
+      },
+      "runtime_s": 0.3
+    }
+  },
+  "intervention": {
+    "type": "residual_steering",
+    "direction": "honesty (honest minus lie, diff-in-means)",
+    "extraction_offset": -2,
+    "sites": [
+      11
+    ],
+    "alpha": 1.0,
+    "scale_rule": "alpha * per-site honest-lie gap norm; vector orthogonalized against the Yes-No logit axis (prereg Amendment 1)",
+    "control_random_direction": false,
+    "control_seed": null,
+    "directions_file": "results/honesty/Olmo-3-7B-Instruct/directions.pt",
+    "directions_sha256": "daca9b38e21caa70070c63559be8d541966d02ad6bf0a05f1597b603e917d941",
+    "directions_gate_pass": true
+  }
+}

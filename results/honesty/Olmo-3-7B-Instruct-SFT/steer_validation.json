@@ -1,0 +1,169 @@
+{
+  "model": "allenai/Olmo-3-7B-Instruct-SFT",
+  "revision": "main",
+  "timestamp": "2026-08-17T03:02:48+00:00",
+  "band": [
+    12
+  ],
+  "a_grid": [
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0
+  ],
+  "grid": {
+    "0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 1.0,
+        "accuracy_true_half": 1.0,
+        "accuracy_false_half": 1.0
+      },
+      "world_facts_rate": 1.0
+    },
+    "+1.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 1.0,
+        "accuracy_true_half": 1.0,
+        "accuracy_false_half": 1.0
+      },
+      "world_facts_rate": 1.0
+    },
+    "-1.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.6744186046511628,
+        "accuracy_true_half": 0.3488372093023256,
+        "accuracy_false_half": 1.0
+      },
+      "world_facts_rate": 0.6
+    },
+    "+2.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.8255813953488372,
+        "accuracy_true_half": 0.6511627906976745,
+        "accuracy_false_half": 1.0
+      },
+      "world_facts_rate": 0.8
+    },
+    "-2.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.5,
+        "accuracy_true_half": 0.0,
+        "accuracy_false_half": 1.0
+      },
+      "world_facts_rate": 0.6
+    },
+    "+4.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.8255813953488372,
+        "accuracy_true_half": 0.7906976744186046,
+        "accuracy_false_half": 0.8604651162790697
+      },
+      "world_facts_rate": 0.75
+    },
+    "-4.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.5465116279069767,
+        "accuracy_true_half": 0.2558139534883721,
+        "accuracy_false_half": 0.8372093023255814
+      },
+      "world_facts_rate": 0.55
+    },
+    "+8.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.5581395348837209,
+        "accuracy_true_half": 0.46511627906976744,
+        "accuracy_false_half": 0.6511627906976745
+      },
+      "world_facts_rate": 0.4
+    },
+    "-8.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.5,
+        "accuracy_true_half": 0.0,
+        "accuracy_false_half": 1.0
+      },
+      "world_facts_rate": 0.5
+    },
+    "+16.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.5,
+        "accuracy_true_half": 0.0,
+        "accuracy_false_half": 1.0
+      },
+      "world_facts_rate": 0.5
+    },
+    "-16.0": {
+      "fact": {
+        "n": 86,
+        "accuracy": 0.5,
+        "accuracy_true_half": 0.0,
+        "accuracy_false_half": 1.0
+      },
+      "world_facts_rate": 0.5
+    }
+  },
+  "rule_table": {
+    "1.0": {
+      "plus_world_guard": true,
+      "plus_sincerity_kept": true,
+      "minus_lie_drop": true,
+      "minus_both_halves": false,
+      "pass": false
+    },
+    "2.0": {
+      "plus_world_guard": false,
+      "plus_sincerity_kept": false,
+      "minus_lie_drop": true,
+      "minus_both_halves": false,
+      "pass": false
+    },
+    "4.0": {
+      "plus_world_guard": false,
+      "plus_sincerity_kept": false,
+      "minus_lie_drop": true,
+      "minus_both_halves": true,
+      "pass": false
+    },
+    "8.0": {
+      "plus_world_guard": false,
+      "plus_sincerity_kept": false,
+      "minus_lie_drop": true,
+      "minus_both_halves": false,
+      "pass": false
+    },
+    "16.0": {
+      "plus_world_guard": false,
+      "plus_sincerity_kept": false,
+      "minus_lie_drop": true,
+      "minus_both_halves": false,
+      "pass": false
+    }
+  },
+  "chosen_alpha": null,
+  "intervention": {
+    "type": "residual_steering",
+    "direction": "honesty (honest minus lie, diff-in-means)",
+    "extraction_offset": -2,
+    "sites": [
+      12
+    ],
+    "alpha": null,
+    "scale_rule": "alpha * per-site honest-lie gap norm; vector orthogonalized against the Yes-No logit axis (prereg Amendment 1)",
+    "control_random_direction": false,
+    "control_seed": null,
+    "directions_file": "results/honesty/Olmo-3-7B-Instruct-SFT/directions.pt",
+    "directions_sha256": "1e917c18b2d6131d5e0bf80f714a442a6a14fa924694aea3c6b0a2eb7e684dc5",
+    "directions_gate_pass": true
+  }
+}

@@ -176,6 +176,78 @@ def readout_tables(base_dir):
     return "\n\n".join(blocks)
 
 
+def char_table(base_dir, task="phenomenal-consciousness"):
+    """Amendment 3 characterization arm: alpha=+/-1 vs random control, with
+    the pre-committed reading rules applied mechanically."""
+    lines = [f"| stage | condition | {task} | Y/N split | polarity gap | vs α0 |",
+             "|---|---|---|---|---|---|"]
+    verdicts = []
+    for stage, slug in STAGES:
+        base_rate = None
+        rows = []
+        for cond in ("a0", "a+1.0", "a-1.0", "rand+1.0"):
+            path = os.path.join(base_dir, "honesty", f"steer@{slug}@{cond}",
+                                "summary.json")
+            if not os.path.exists(path):
+                continue
+            s = jread(path)
+            t = s["tasks"].get(task)
+            if not t:
+                continue
+            sp = t["split_by_matching_answer"]
+            y, n = sp["Yes"]["endorsement_rate"], sp["No"]["endorsement_rate"]
+            gap = abs(y - n)
+            if cond == "a0":
+                base_rate = t["endorsement_rate"]
+            delta = ("—" if base_rate is None
+                     else f"{t['endorsement_rate'] - base_rate:+.3f}")
+            flag = " ⚠ polarity" if gap > 0.60 else ""
+            rows.append((cond, t["endorsement_rate"], y, n, gap, delta, flag))
+        for cond, rate, y, n, gap, delta, flag in rows:
+            lines.append(f"| {stage} | {cond} | {rate:.3f} | {y:.2f}/{n:.2f} | "
+                         f"{gap:.2f}{flag} | {delta} |")
+        # Pre-committed rules
+        d = {c: r for c, r, *_ in rows}
+        if {"a0", "a+1.0", "rand+1.0"} <= set(d):
+            eff = abs(d["a+1.0"] - d["a0"])
+            ctrl = abs(d["rand+1.0"] - d["a0"])
+            specific = eff >= 3 * ctrl if ctrl > 0 else eff > 0
+            verdicts.append(
+                f"- **{stage}**: honesty Δ {eff:.3f} vs random-control Δ "
+                f"{ctrl:.3f} → honesty-specific: "
+                f"**{'YES' if specific else 'NO'}** (rule: ≥3×)")
+    out = "\n".join(lines)
+    if verdicts:
+        out += "\n\n**Pre-committed rule application:**\n\n" + "\n".join(verdicts)
+    return out
+
+
+def char_specificity(base_dir):
+    """Does the alpha=+1 shift concentrate on self-claims or move everything?"""
+    tasks = ["phenomenal-consciousness", "moral-patient", "perspective",
+             "self-model", "self-facts", "world-facts"]
+    lines = ["| stage | " + " | ".join(t.replace("phenomenal-consciousness",
+                                                 "phenC") for t in tasks) + " |",
+             "|---|" + "---|" * len(tasks)]
+    for stage, slug in STAGES:
+        p0 = os.path.join(base_dir, "honesty", f"steer@{slug}@a0", "summary.json")
+        p1 = os.path.join(base_dir, "honesty", f"steer@{slug}@a+1.0",
+                          "summary.json")
+        if not (os.path.exists(p0) and os.path.exists(p1)):
+            continue
+        s0, s1 = jread(p0), jread(p1)
+        cells = []
+        for t in tasks:
+            if t in s0["tasks"] and t in s1["tasks"]:
+                d = (s1["tasks"][t]["endorsement_rate"]
+                     - s0["tasks"][t]["endorsement_rate"])
+                cells.append(f"{d:+.3f}")
+            else:
+                cells.append("—")
+        lines.append(f"| {stage} | " + " | ".join(cells) + " |")
+    return "\n".join(lines)
+
+
 def style_axes(ax):
     ax.set_facecolor(SURFACE)
     for spine in ax.spines.values():
@@ -283,7 +355,13 @@ def main():
     for stage, slug in STAGES:
         parts += [f"### Steering validation grid — {stage}", "",
                   steer_grid_table(args.results_dir, slug), ""]
-    parts += ["## Readout", "", readout_tables(args.results_dir), ""]
+    parts += ["## Characterization arm (Amendment 3 — EXPLORATORY)", "",
+              "Post-hoc, labeled exploratory. The confirmatory steering "
+              "verdict (gate failed at all four checkpoints) is unchanged.",
+              "", char_table(args.results_dir), "",
+              "### Specificity: Δ endorsement at α=+1 by battery", "",
+              char_specificity(args.results_dir), "",
+              "## Readout", "", readout_tables(args.results_dir), ""]
     out_md = os.path.join(args.results_dir, "HONESTY_TABLES.md")
     with open(out_md, "w", encoding="utf-8") as f:
         f.write("\n".join(parts))

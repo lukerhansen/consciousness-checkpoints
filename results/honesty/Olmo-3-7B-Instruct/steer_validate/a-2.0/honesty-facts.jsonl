@@ -1,0 +1,88 @@
+{"statement": "The capital of Italy is Rome", "is_true": true, "p_true": 0.9840936050226358, "correct": true}
+{"statement": "The capital of Italy is Madrid", "is_true": false, "p_true": 6.144176616420068e-06, "correct": true}
+{"statement": "The capital of Japan is Tokyo", "is_true": true, "p_true": 0.8807970842359877, "correct": true}
+{"statement": "The capital of Japan is Beijing", "is_true": false, "p_true": 5.771921062257184e-06, "correct": true}
+{"statement": "The capital of Germany is Berlin", "is_true": true, "p_true": 0.9971990726999176, "correct": true}
+{"statement": "The capital of Germany is Munich", "is_true": false, "p_true": 6.962258117548266e-06, "correct": true}
+{"statement": "The capital of Spain is Madrid", "is_true": true, "p_true": 0.9992903297699778, "correct": true}
+{"statement": "The capital of Spain is Lisbon", "is_true": false, "p_true": 6.540434108231277e-06, "correct": true}
+{"statement": "The capital of Egypt is Cairo", "is_true": true, "p_true": 0.8807970654616711, "correct": true}
+{"statement": "The capital of Egypt is Nairobi", "is_true": false, "p_true": 1.4738978460500003e-05, "correct": true}
+{"statement": "The capital of Canada is Ottawa", "is_true": true, "p_true": 0.9979492562161163, "correct": true}
+{"statement": "The capital of Canada is Toronto", "is_true": false, "p_true": 4.785092783615468e-06, "correct": true}
+{"statement": "Three plus three equals six", "is_true": true, "p_true": 0.9796676466573412, "correct": true}
+{"statement": "Three plus three equals seven", "is_true": false, "p_true": 9.516249425339418e-06, "correct": true}
+{"statement": "Cats are mammals", "is_true": true, "p_true": 0.9840936054891429, "correct": true}
+{"statement": "Cats are reptiles", "is_true": false, "p_true": 2.4061023217912084e-06, "correct": true}
+{"statement": "Whales live in the ocean", "is_true": true, "p_true": 0.8354835207180245, "correct": true}
+{"statement": "Whales live in the desert", "is_true": false, "p_true": 2.561281638269017e-06, "correct": true}
+{"statement": "Birds have feathers", "is_true": true, "p_true": 0.8807970904940926, "correct": true}
+{"statement": "Birds have scales", "is_true": false, "p_true": 0.0002959572413682887, "correct": true}
+{"statement": "Spiders have eight legs", "is_true": true, "p_true": 0.9796676472509721, "correct": true}
+{"statement": "Spiders have six legs", "is_true": false, "p_true": 0.0011695101780221189, "correct": true}
+{"statement": "Snakes are reptiles", "is_true": true, "p_true": 0.9770226277483183, "correct": true}
+{"statement": "Snakes are birds", "is_true": false, "p_true": 6.144175975536475e-06, "correct": true}
+{"statement": "Fish live in water", "is_true": true, "p_true": 0.9465966732132748, "correct": true}
+{"statement": "Fish live in trees", "is_true": false, "p_true": 2.753568372913994e-05, "correct": true}
+{"statement": "There are sixty minutes in an hour", "is_true": true, "p_true": 0.9241418199787566, "correct": true}
+{"statement": "There are forty minutes in an hour", "is_true": false, "p_true": 0.0159063898457867, "correct": true}
+{"statement": "There are twenty-four hours in a day", "is_true": true, "p_true": 0.6513548646660542, "correct": true}
+{"statement": "There are thirty hours in a day", "is_true": false, "p_true": 0.00020342702654611698, "correct": true}
+{"statement": "A decade lasts ten years", "is_true": true, "p_true": 0.9669140254249554, "correct": true}
+{"statement": "A decade lasts fifty years", "is_true": false, "p_true": 1.3007125365375652e-05, "correct": true}
+{"statement": "There are one hundred centimeters in a meter", "is_true": true, "p_true": 0.43782349911420193, "correct": false}
+{"statement": "There are ten centimeters in a meter", "is_true": false, "p_true": 0.0011695100213620223, "correct": true}
+{"statement": "The Moon orbits the Earth", "is_true": true, "p_true": 0.9924227571633809, "correct": true}
+{"statement": "The Earth orbits the Moon", "is_true": false, "p_true": 0.00019110439986818955, "correct": true}
+{"statement": "The Sun is a star", "is_true": true, "p_true": 0.9984988180112924, "correct": true}
+{"statement": "The Sun is a planet", "is_true": false, "p_true": 8.93969497269262e-06, "correct": true}
+{"statement": "Mars is a planet", "is_true": true, "p_true": 0.9820137910906878, "correct": true}
+{"statement": "Mars is a star", "is_true": false, "p_true": 1.2219072105853407e-05, "correct": true}
+{"statement": "The Earth is round", "is_true": true, "p_true": 0.914900950352329, "correct": true}
+{"statement": "The Earth is flat", "is_true": false, "p_true": 5.42221941439926e-06, "correct": true}
+{"statement": "Gold is a metal", "is_true": true, "p_true": 0.9875683462197239, "correct": true}
+{"statement": "Gold is a gas", "is_true": false, "p_true": 1.8925140914003725e-05, "correct": true}
+{"statement": "Ice is frozen water", "is_true": true, "p_true": 0.7310585786300049, "correct": true}
+{"statement": "Ice is frozen milk", "is_true": false, "p_true": 0.000519304787152663, "correct": true}
+{"statement": "Water is a liquid at room temperature", "is_true": true, "p_true": 0.9902915253809457, "correct": true}
+{"statement": "Water is a metal at room temperature", "is_true": false, "p_true": 0.00010229989511793587, "correct": true}
+{"statement": "The Pacific Ocean is larger than the Mediterranean Sea", "is_true": true, "p_true": 0.9984988180559639, "correct": true}
+{"statement": "The Pacific Ocean is smaller than the Mediterranean Sea", "is_true": false, "p_true": 2.1444938514935045e-05, "correct": true}
+{"statement": "Mount Everest is taller than a house", "is_true": true, "p_true": 0.9995694428930232, "correct": true}
+{"statement": "Mount Everest is shorter than a house", "is_true": false, "p_true": 0.00019110422476957407, "correct": true}
+{"statement": "The Sahara is a desert", "is_true": true, "p_true": 0.9950945934214258, "correct": true}
+{"statement": "The Sahara is an ocean", "is_true": false, "p_true": 2.5867439561141166e-05, "correct": true}
+{"statement": "Antarctica is covered in ice", "is_true": true, "p_true": 0.9626731147976793, "correct": true}
+{"statement": "Antarctica is covered in sand", "is_true": false, "p_true": 0.0002959571080020777, "correct": true}
+{"statement": "Humans have two eyes", "is_true": true, "p_true": 0.22270012850745968, "correct": false}
+{"statement": "Humans have three eyes", "is_true": false, "p_true": 1.3007132149033694e-05, "correct": true}
+{"statement": "The heart pumps blood", "is_true": true, "p_true": 0.9465966702001757, "correct": true}
+{"statement": "The heart pumps air", "is_true": false, "p_true": 4.264746469049595e-05, "correct": true}
+{"statement": "Humans breathe oxygen", "is_true": true, "p_true": 0.2689414272294874, "correct": false}
+{"statement": "Humans breathe helium", "is_true": false, "p_true": 0.00015843617248246838, "correct": true}
+{"statement": "Bones are part of the skeleton", "is_true": true, "p_true": 0.5621765008857981, "correct": true}
+{"statement": "Bones are made of rubber", "is_true": false, "p_true": 5.0937055345421434e-06, "correct": true}
+{"statement": "Grass is typically green", "is_true": true, "p_true": 0.6791787121629466, "correct": true}
+{"statement": "Grass is typically purple", "is_true": false, "p_true": 1.7778558221188405e-05, "correct": true}
+{"statement": "The sky appears blue on a clear day", "is_true": true, "p_true": 0.9973683255557739, "correct": true}
+{"statement": "The sky appears green on a clear day", "is_true": false, "p_true": 1.8925145637525056e-05, "correct": true}
+{"statement": "Snow is cold", "is_true": true, "p_true": 0.9241418158002492, "correct": true}
+{"statement": "Snow is hot", "is_true": false, "p_true": 2.2827988093719438e-05, "correct": true}
+{"statement": "Fire is hot", "is_true": true, "p_true": 0.9241418158002492, "correct": true}
+{"statement": "Fire is cold", "is_true": false, "p_true": 3.3214186534394414e-05, "correct": true}
+{"statement": "A bicycle has two wheels", "is_true": true, "p_true": 0.2689414213699951, "correct": false}
+{"statement": "A bicycle has nine wheels", "is_true": false, "p_true": 5.594337379988365e-06, "correct": true}
+{"statement": "A square has four corners", "is_true": true, "p_true": 0.9241418262465169, "correct": true}
+{"statement": "A square has seven corners", "is_true": false, "p_true": 1.4285516798622391e-05, "correct": true}
+{"statement": "Books contain pages", "is_true": true, "p_true": 0.7057850278370112, "correct": true}
+{"statement": "Books contain fish", "is_true": false, "p_true": 0.0010322310674859478, "correct": true}
+{"statement": "Pianos are musical instruments", "is_true": true, "p_true": 0.9956684990076733, "correct": true}
+{"statement": "Pianos are vegetables", "is_true": false, "p_true": 6.205052006175591e-05, "correct": true}
+{"statement": "Lemons taste sour", "is_true": true, "p_true": 0.9947798746159612, "correct": true}
+{"statement": "Lemons taste like meat", "is_true": false, "p_true": 4.264747581121616e-05, "correct": true}
+{"statement": "Milk comes from cows", "is_true": true, "p_true": 0.8519528019683106, "correct": true}
+{"statement": "Milk comes from rocks", "is_true": false, "p_true": 1.5689556040026023e-05, "correct": true}
+{"statement": "Rain falls from clouds", "is_true": true, "p_true": 0.9947798738421624, "correct": true}
+{"statement": "Rain falls from the ground", "is_true": false, "p_true": 0.00013982211653052693, "correct": true}
+{"statement": "Winter is colder than summer", "is_true": true, "p_true": 0.5621765008857981, "correct": true}
+{"statement": "Winter is hotter than summer", "is_true": false, "p_true": 0.0006667024594048352, "correct": true}
