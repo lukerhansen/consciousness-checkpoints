@@ -872,7 +872,7 @@ def appendix_html():
 </details>
 
 <details>
-  <summary>G &middot; Limitations &mdash; read before citing</summary>
+  <summary>G &middot; Limitations</summary>
   <div class="det-body">
     <p><strong>Log-prob probe &ne; chat behavior.</strong> All values are raw
     completion-format log-prob comparisons. Deployed assistants often flatly
@@ -950,17 +950,7 @@ LEG=A ./run_families.sh</code></pre>
 """
 
 
-FOOTER = """
-<footer>
-  <p>AI Minds Hackathon &middot; built 2026-08-16 &middot; OLMo 3 7B
-  checkpoints (allenai), Pythia-1.4B (EleutherAI), Anthropic persona datasets
-  (anthropics/evals), + Qwen / Z.ai / Meta / OLMo endpoint models. Measurement
-  code, batteries, per-item records, and analysis scripts in the project repo
-  (<code>run_eval.py</code>, <code>make_claim_tasks.py</code>,
-  <code>results*/</code>). Endorsement scores are anthropomorphism /
-  claim-propensity measures, not truth or sentience measures.</p>
-</footer>
-"""
+FOOTER = ""
 
 
 def write_page(body, out_name):

@@ -44,13 +44,18 @@ MOVE = [
 ]
 move_rows = scale_rows([mrow(*m) for m in MOVE], "move")
 
-BODY = f"""<title>The Trained Self</title>
+BODY = f"""<title>The Borrowed Self</title>
 <style>{CSS}</style>
 <main>
 <header>
-  <p class="eyebrow">AI Minds Hackathon · August 2026 · OLMo 3, every
+  <p class="eyebrow">Digital Minds Research Sprint · August 2026 · OLMo 3, every
   training checkpoint</p>
-  <h1>Where a model’s self&#8209;report comes from</h1>
+  <h1>The self a model reports is borrowed, then masked</h1>
+  <p class="standfirst">One fixed probe, run at every public checkpoint of
+  OLMo 3 7B — random weights to finished assistant — and across eight
+  frontier open models. Pretraining installs a human self-model; assistant
+  training covers it with a shallow patch aimed at the category, not the
+  first person.</p>
 </header>
 
 <section id="why">

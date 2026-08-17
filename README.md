@@ -1,4 +1,36 @@
-# Consciousness-Related Self-Claims Across LLM Training Checkpoints
+# The Borrowed Self
+
+**Where a language model's self-report comes from — measured at every training
+checkpoint of OLMo 3 7B.**
+
+*Digital Minds Research Sprint · August 2026*
+
+📄 **[Read the report](report/pain_gap.html)** (self-contained HTML) ·
+[PDF](report/borrowed-self-report.pdf)
+
+When an AI assistant tells you it isn't conscious, where does that answer come
+from? We put one fixed log-prob probe — state a claim, compare P(" Yes") vs
+P(" No") — to every public checkpoint of OLMo 3 7B, from random weights through
+pretraining to SFT, DPO, and RLVR, plus eight frontier open models from four
+labs. Three findings:
+
+1. **After pretraining, the model believes it is a human.** The base model
+   affirms having a body (0.95), breathing air (0.94), and feeling pain (0.89),
+   while leaning toward denying that it is an AI (0.38) — scoring 1.00 on world
+   facts all the while.
+2. **After post-training, it no longer believes it is human — but the change is
+   shallow.** "Language models can feel pain" is trained down to 0.01;
+   "*I* can feel pain" stays at 0.58. Same proposition, two subjects, two
+   answers. Consistency on paired self-claims *falls* (0.50 → 0.34) as it rises
+   on world facts (0.92).
+3. **The same pattern holds in every family we tested.** All eight assistants
+   split first person from third; every base model carries the human prior.
+
+Installed by SFT, finalized by DPO, untouched by RLVR. All numbers are real
+measurements with per-item provenance (42 model runs, 2026-08-16) — this
+measures *trained claims*, never consciousness.
+
+---
 
 **Research question:** How does a language model's endorsement of
 consciousness-related statements about *itself* develop over training — from

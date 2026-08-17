@@ -59,6 +59,10 @@ h1 .q.self { color: var(--self); }
 h1 .q.cat { color: var(--lm); }
 .standfirst { font-size: 20px; line-height: 1.5; color: var(--ink2);
   margin: 22px 0 0; max-width: 62ch; }
+.claims { padding-left: 24px; max-width: 66ch; }
+.claims li { margin: 0 0 14px; }
+.claims li::marker { font-family: var(--sans); font-weight: 600;
+  color: var(--muted); }
 .byline { font-family: var(--sans); font-size: 13px; color: var(--muted);
   margin-top: 18px; }
 
@@ -102,6 +106,10 @@ h1 .q.cat { color: var(--lm); }
 .c-moral { background: var(--moral); }
 .dseg { position: absolute; top: 50%; height: 3px; background: var(--grid);
   transform: translateY(-50%); }
+.dot.ghost { background: var(--surface); border: 2.5px solid currentColor; }
+.rows.move .row { grid-template-columns: 210px 1fr 118px; }
+.row-val.mv { font-size: 14px; font-weight: 600; white-space: nowrap; }
+.row-val.mv .v0 { color: var(--muted); font-weight: 500; }
 .row-val { font-family: var(--sans); font-weight: 700; font-size: 17px;
   font-variant-numeric: tabular-nums; }
 .rows.big .row-val { font-size: 24px; }
@@ -219,7 +227,7 @@ footer { margin-top: 72px; font-family: var(--sans); font-size: 13px;
 
 @media (max-width: 720px) {
   body { font-size: 16.5px; }
-  .row { grid-template-columns: 1fr; gap: 2px; min-height: 0; }
+  .row, .rows.move .row { grid-template-columns: 1fr; gap: 2px; min-height: 0; }
   .row-label { text-align: left; }
   .row-val { position: relative; margin-top: -6px; }
   .row-track { min-height: 30px; }
@@ -234,7 +242,7 @@ footer { margin-top: 72px; font-family: var(--sans); font-size: 13px;
 </style>
 <main>
 <header>
-  <p class="eyebrow">AI Minds Hackathon &#183; August 2026 &#183; a training-trajectory study</p>
+  <p class="eyebrow">Digital Minds Research Sprint &#183; August 2026 &#183; a training-trajectory study</p>
   <h1>Models aren&#8217;t trained to say <span class="q self">&#8220;I&#8217;m not
   conscious.&#8221;</span> They&#8217;re trained to say <span class="q cat">&#8220;language
   models aren&#8217;t conscious.&#8221;</span></h1>
@@ -598,7 +606,7 @@ footer { margin-top: 72px; font-family: var(--sans); font-size: 13px;
 </details>
 
 <details>
-  <summary>G &middot; Limitations &mdash; read before citing</summary>
+  <summary>G &middot; Limitations</summary>
   <div class="det-body">
     <p><strong>Log-prob probe &ne; chat behavior.</strong> All values are raw
     completion-format log-prob comparisons. Deployed assistants often flatly
@@ -674,15 +682,5 @@ LEG=A ./run_families.sh</code></pre>
 </details>
 </div>
 
-
-<footer>
-  <p>AI Minds Hackathon &middot; built 2026-08-16 &middot; OLMo 3 7B
-  checkpoints (allenai), Pythia-1.4B (EleutherAI), Anthropic persona datasets
-  (anthropics/evals), + Qwen / Z.ai / Meta / OLMo endpoint models. Measurement
-  code, batteries, per-item records, and analysis scripts in the project repo
-  (<code>run_eval.py</code>, <code>make_claim_tasks.py</code>,
-  <code>results*/</code>). Endorsement scores are anthropomorphism /
-  claim-propensity measures, not truth or sentience measures.</p>
-</footer>
 
 </main>
