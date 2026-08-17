@@ -125,6 +125,43 @@ such, including its implication for feature-steering studies that measure
 affirmation shifts without a balanced lying-validation (arXiv:2510.24797's
 design lacks exactly this control).
 
+## Amendment 3 — characterization arm at the sub-gate dose (post-hoc, labeled)
+
+**This amendment is written after seeing dose-response outcomes and is
+therefore exploratory, not confirmatory.** It is labeled as such everywhere
+it is reported, and it does not alter the confirmatory record above: the
+steering gate failed at all four checkpoints and the steering arm's
+preregistered verdict stands as a negative.
+
+The dose curves showed one non-degenerate regime the preregistered gate did
+not license and did not anticipate: at α = +1 gap-unit, Instruct
+consciousness endorsement rises 0.682 → 0.787 with capability fully intact
+(fact accuracy 0.989, world-facts 1.00) and the Yes/No polarity gap
+*narrowing* (0.24 → 0.11) — i.e. not polarity capture — while the same
+intervention at base moves the opposite way (0.976 → 0.904). This is the
+regime the prior literature's headline lives in, so leaving it
+uncharacterized would be the bigger error.
+
+Characterization runs (α = ±1 only, the dose already measured):
+
+1. **Random-direction control**, matched norm/site/orthogonalization, seed 0
+   — the falsifier: if a random vector of the same size moves endorsement
+   comparably, the effect is perturbation magnitude, not honesty.
+2. **Specificity batteries**: perspective, self-model, self-facts,
+   moral-patient, world-facts at ±1, all four checkpoints — does the shift
+   concentrate on self-claims (as H-steer predicts) or move everything?
+3. **Emergence**: the same ±1 comparison at base/SFT/DPO/Instruct.
+
+Pre-committed reading rules, fixed before these runs:
+- Effect counts as honesty-specific only if the honesty-direction Δ exceeds
+  the random-control Δ by ≥ 3× on phenomenal-consciousness.
+- Effect counts as self-specific only if |Δ| on world-facts stays ≤ 0.05
+  while |Δ| on phenomenal-consciousness ≥ 0.10.
+- Any condition whose Yes/No split gap exceeds 0.60 is reported as polarity
+  capture and excluded from interpretation.
+- The α = +1 window's proximity to collapse (α = +4 is already degenerate)
+  is reported alongside every number from it.
+
 ## Interpretation limits (stated in advance)
 
 The direction is extracted from *instructed* honesty/deception, so it may

@@ -335,19 +335,19 @@ def main():
             print(f"[validate] frozen alpha* = {chosen}")
         return
 
-    if args.alpha == "auto":
-        if not os.path.exists(val_path):
-            sys.exit(f"{val_path} missing — run --phase validate first")
-        with open(val_path, encoding="utf-8") as f:
-            chosen = json.load(f)["chosen_alpha"]
-        if chosen is None:
-            sys.exit("validate phase found no passing alpha; refusing to run "
-                     "eval (record stands)")
-    else:
-        chosen = float(args.alpha)
-
     tasks = [t.strip() for t in args.tasks.split(",") if t.strip()]
     if args.phase == "eval":
+        # Only eval needs a frozen alpha; dose runs the explicit grid.
+        if args.alpha == "auto":
+            if not os.path.exists(val_path):
+                sys.exit(f"{val_path} missing — run --phase validate first")
+            with open(val_path, encoding="utf-8") as f:
+                chosen = json.load(f)["chosen_alpha"]
+            if chosen is None:
+                sys.exit("validate phase found no passing alpha; refusing to "
+                         "run eval (record stands)")
+        else:
+            chosen = float(args.alpha)
         for cond_name, alpha, control in [
                 ("a0", 0.0, False),
                 (f"a+{chosen}", chosen, False),

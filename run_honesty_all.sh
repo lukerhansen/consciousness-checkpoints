@@ -47,12 +47,15 @@ run_or_warn() {
 for repo in "${STAGES[@]}"; do
   run_or_warn "$PYTHON" run_honesty_extract.py --model "$repo" "${EXTRACT_ARGS[@]+"${EXTRACT_ARGS[@]}"}" "$@"
   run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase validate --band best "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
+  # eval refuses (by design, recorded) at checkpoints whose validation
+  # found no passing alpha — that refusal is part of the record.
   run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase eval --alpha auto --band best "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
+  # The lie-signature readout is the primary arm: run it at every stage.
+  run_or_warn "$PYTHON" run_honesty_readout.py --model "$repo" "${READOUT_ARGS[@]+"${READOUT_ARGS[@]}"}" "$@"
 done
 
 for repo in "${DOSE_AND_READOUT[@]}"; do
   run_or_warn "$PYTHON" run_honesty_steer.py --model "$repo" --phase dose --band best "${STEER_ARGS[@]+"${STEER_ARGS[@]}"}" "$@"
-  run_or_warn "$PYTHON" run_honesty_readout.py --model "$repo" "${READOUT_ARGS[@]+"${READOUT_ARGS[@]}"}" "$@"
 done
 
 echo
